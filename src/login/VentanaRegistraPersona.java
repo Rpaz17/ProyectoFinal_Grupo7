@@ -135,6 +135,7 @@ public class VentanaRegistraPersona extends javax.swing.JFrame {
 
         jPanel9.setOpaque(false);
 
+        btnRegistrar.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
