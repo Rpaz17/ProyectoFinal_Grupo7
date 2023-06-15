@@ -25,7 +25,6 @@ public class configuracion extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         btn_tutorial = new javax.swing.JButton();
-        jSeparator2 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         btn_clasico = new javax.swing.JButton();
@@ -43,7 +42,6 @@ public class configuracion extends javax.swing.JFrame {
 
         btn_tutorial.setText("TUTORIAL");
         jPanel1.add(btn_tutorial);
-        jPanel1.add(jSeparator2);
 
         jPanel4.setOpaque(false);
 
@@ -66,7 +64,7 @@ public class configuracion extends javax.swing.JFrame {
 
         jPanel3.setOpaque(false);
 
-        btn_menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/proyecto/btn_regreso/btn_menuPrincipal.png"))); // NOI18N
+        btn_menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/btn_regreso/btn_menuPrincipal.png"))); // NOI18N
         btn_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_menuMouseClicked(evt);
@@ -89,7 +87,7 @@ public class configuracion extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(268, 268, 268)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -136,6 +134,5 @@ public class configuracion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }

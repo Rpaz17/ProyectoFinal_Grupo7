@@ -106,7 +106,7 @@
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/proyecto/proyecto/btn_regreso/btn_menuPrincipal.png"/>
+                  <Image iconType="3" name="/proyecto/btn_regreso/btn_menuPrincipal.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -141,7 +141,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/proyecto/Imagenes_rebeca/TodosLosFondos/fondo_vacio.png"/>
+              <Image iconType="3" name="/Imagenes_rebeca/TodosLosFondos/fondo_vacio.png"/>
             </Property>
           </Properties>
         </Component>

@@ -1,6 +1,5 @@
 
 package login;
-import login.Persona;
 import proyecto.*;
 
 public class MiPerfil extends javax.swing.JFrame {
@@ -36,6 +35,7 @@ public class MiPerfil extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 0));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setOpaque(false);
@@ -76,7 +76,7 @@ public class MiPerfil extends javax.swing.JFrame {
 
         jPanel2.setOpaque(false);
 
-        volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/proyecto/btn_regreso/btn_menuPrincipal.png"))); // NOI18N
+        volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/btn_regreso/btn_menuPrincipal.png"))); // NOI18N
         volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volverActionPerformed(evt);
@@ -173,7 +173,6 @@ public class MiPerfil extends javax.swing.JFrame {
         );
 
         jPanel8.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel8.setOpaque(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_rebeca/TodosLosFondos/fondo_MiPerfil.png"))); // NOI18N
         jPanel8.add(jLabel1);

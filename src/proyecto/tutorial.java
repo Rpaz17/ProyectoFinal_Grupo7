@@ -51,7 +51,7 @@ public class tutorial extends javax.swing.JFrame {
 
         jPanel3.setOpaque(false);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/proyecto/btn_regreso/btn_menuPrincipal.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/btn_regreso/btn_menuPrincipal.png"))); // NOI18N
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -87,7 +87,7 @@ public class tutorial extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 0, 0));
         jPanel5.setOpaque(false);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/Imagenes_rebeca/TodosLosFondos/fondo_vacio.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_rebeca/TodosLosFondos/fondo_vacio.png"))); // NOI18N
         jPanel5.add(jLabel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

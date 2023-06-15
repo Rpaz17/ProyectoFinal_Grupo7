@@ -41,7 +41,7 @@ public class info_termina_partida extends javax.swing.JFrame {
 
         jPanel2.setOpaque(false);
 
-        btn_menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/proyecto/btn_regreso/btn_menuPrincipal.png"))); // NOI18N
+        btn_menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/btn_regreso/btn_menuPrincipal.png"))); // NOI18N
         btn_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_menuMouseClicked(evt);
