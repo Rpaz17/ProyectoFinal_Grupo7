@@ -11,13 +11,10 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 
-
-
 public class inicio extends javax.swing.JFrame {
-//FondoPanel fondo=new FondoPanel();
+    
     public inicio() {
        initComponents();
-  //     this.setContentPane(fondo);
 
         this.setExtendedState(6);
               
@@ -32,6 +29,10 @@ public class inicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel2.setForeground(new java.awt.Color(0, 0, 0));
+
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_rebeca/INICIO PRINCIPAL STRATEGO.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,19 +111,6 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
-/*
-    class FondoPanel extends JPanel{
-    private Image imagen;
-    
-    @Override
-    public void paint(Graphics g){
-        //C:\Users\pcast\OneDrive\Documentos\NetBeansProjects\New Folder\lab1\src\Imagenes_rebeca\INICIO PRINCIPAL STRATEGO.png
-        imagen = new ImageIcon(getClass().getResource("/Imagenes_rebeca/INICIO PRINCIPAL STRATEGO.png")).getImage();
-        g.drawImage(imagen, 0, 0, getWidth(),getHeight(),this);
-        setOpaque(false);
-        super.paint(g);
-    }
-}
-*/
+
 
 }
