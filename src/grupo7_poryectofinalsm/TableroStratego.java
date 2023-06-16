@@ -516,6 +516,12 @@ public class TableroStratego extends JFrame {
             }
         }
     }
+    public void Ganador(){
+        String ganador="";
+        if ( ganador=="Heroe"){
+            System.out.println("EL JUGADOR");
+        }
+    }
     private int getRandom(int min, int max) {
         return (int)Math.floor(Math.random() * (max - min + 1) + min);
     }
