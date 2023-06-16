@@ -282,6 +282,8 @@ public class TableroStratego extends JFrame {
                             }else if((botonInicio.character.Nivel==11 && botonPresionado.character.Nivel==3)){
                                  botonInicio.character=null;
                                  botonInicio.setText(" ");
+                            } else if (botonInicio.character.Tipo=="Heroe" && botonPresionado.character.Tipo =="tierraV" ){
+                                
                             } else {
                                 if(botonInicio.character.Nivel>botonPresionado.character.Nivel){
                                     botonPresionado.character=null;
