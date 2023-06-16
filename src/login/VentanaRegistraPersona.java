@@ -1,7 +1,4 @@
 package login;
-import grupo7_poryectofinalsm.*;
-import login.*;
-import login.Persona;
 
 import javax.swing.JOptionPane;
 
@@ -12,7 +9,6 @@ public class VentanaRegistraPersona extends javax.swing.JFrame {
 
     public VentanaRegistraPersona(VentaLogin ventana) {
         initComponents();
-       // setLocationRelativeTo(this);
         this.setExtendedState(6);
         this.ventana = ventana;
 
@@ -43,7 +39,6 @@ public class VentanaRegistraPersona extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_rebeca/TodosLosFondos/fondo_CrearPlayer.png"))); // NOI18N
         jPanel1.add(jLabel2);
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));

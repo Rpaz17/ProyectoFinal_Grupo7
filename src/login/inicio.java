@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package login;
+import javax.swing.ImageIcon;
 import proyecto.*;
 
 public class inicio extends javax.swing.JFrame {
@@ -13,7 +14,9 @@ public class inicio extends javax.swing.JFrame {
         this.setExtendedState(6);
               
     }
-
+//ImageIcon icono = new ImageIcon(getClass().getClassLoader().getResource("/src/Imagenes_rebeca/INICIO PRINCIPAL STRATEGO.png"));
+//jButton1 boton = new jButton1();
+   // boton.setIcon(icono);
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -24,7 +27,7 @@ public class inicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_rebeca/INICIO PRINCIPAL STRATEGO.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\pcast\\OneDrive\\Documentos\\NetBeansProjects\\New Folder\\Programacion1\\src\\proyecto\\Imagenes_rebeca\\INICIO PRINCIPAL STRATEGO.png")); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -59,7 +62,7 @@ public class inicio extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        VentaLogin inicio= new VentaLogin();
         inicio.setVisible(true);
-        this.setVisible(false);
+        this.setVisible(false); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
