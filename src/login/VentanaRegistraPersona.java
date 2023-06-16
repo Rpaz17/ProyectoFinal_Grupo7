@@ -39,6 +39,7 @@ public class VentanaRegistraPersona extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_rebeca/TodosLosFondos/fondo_CrearPlayer.png"))); // NOI18N
         jPanel1.add(jLabel2);
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
