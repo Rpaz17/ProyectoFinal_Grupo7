@@ -51,7 +51,7 @@ public class VentaLogin extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_rebeca/TodosLosFondos/fondo_LogIn.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\pcast\\OneDrive\\Documentos\\NetBeansProjects\\New Folder\\lab1\\src\\Imagenes_rebeca\\TodosLosFondos\\fondo_LogIn.png")); // NOI18N
         jPanel1.add(jLabel2);
 
         jPanel11.setOpaque(false);
