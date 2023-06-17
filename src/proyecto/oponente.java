@@ -96,7 +96,7 @@ public class oponente extends javax.swing.JFrame {
 
         jPanel6.setOpaque(false);
 
-        jLabel2.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel6.add(jLabel2);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

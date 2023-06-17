@@ -6,11 +6,13 @@ import java.awt.GridLayout;
 import java.awt.image.BufferedImage;
 import login.*;
 import proyecto.*;
+import java.util.Date;
         
 public class TableroStratego extends JFrame {
     private Cuadro[][] botones = new Cuadro[10][10];
     Persona persona;
     VentaLogin ventana;
+    bando jugador;
      private BufferedImage image;
      private Personaje[] heroes = new Personaje[33];
      private Personaje[] villanos = new Personaje[33];
@@ -55,14 +57,14 @@ public class TableroStratego extends JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 127, Short.MAX_VALUE)
+            .addGap(0, 115, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        btn_menu.setText("MENU");
+        btn_menu.setText("RENDIRSE");
         btn_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_menuMouseClicked(evt);
@@ -120,9 +122,14 @@ public class TableroStratego extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_menuMouseClicked
-       menu_principal menu = new menu_principal(ventana,persona);
-    menu.setVisible(true);
-    this.setVisible(false);
+        int confirmacion=JOptionPane.showConfirmDialog(rootPane, "Estas seguro que deseas rendirte? Perderas tus puntos en la partida!", "", JOptionPane.YES_NO_OPTION);
+        if(confirmacion == JOptionPane.YES_OPTION){
+              menu_principal menu = new menu_principal(ventana,persona);
+               menu.setVisible(true);
+               this.setVisible(false);
+        }else if ( confirmacion == JOptionPane.NO_OPTION){
+              this.setVisible(true);
+        }        
     }//GEN-LAST:event_btn_menuMouseClicked
 
      private void initBotones(){
@@ -135,6 +142,7 @@ public class TableroStratego extends JFrame {
                 botones[f][c].setName("boton_"+String.valueOf(botonContador));
                 botones[f][c].setBorder(javax.swing.BorderFactory.createEtchedBorder());
                 botonContador++;
+                botones[f][c].setBackground(null);
 //                botones[f][c].setOpaque(false);
 //                botones[f][c].setContentAreaFilled(false);
                 botones[f][c].addMouseListener(new MouseAdapter() {
@@ -282,7 +290,14 @@ public class TableroStratego extends JFrame {
                             }else if((botonInicio.character.Nivel==11 && botonPresionado.character.Nivel==3)){
                                  botonInicio.character=null;
                                  botonInicio.setText(" ");
-                            } else {
+                            } else if ((botonInicio.character.Tipo.equals("Heroe") && botonPresionado.character.Tipo.equals("tierraV")) 
+                                    && (botonInicio.character.Nivel>botonPresionado.character.Nivel)){
+                                botonPresionado.character=botonInicio.character;
+                                botonInicio.character=null;
+                                botonInicio.setText("");
+                                Ganador();
+                                
+                            }else {
                                 if(botonInicio.character.Nivel>botonPresionado.character.Nivel){
                                     botonPresionado.character=null;
                                     botonPresionado.setText(" ");
@@ -512,6 +527,23 @@ public class TableroStratego extends JFrame {
                     }
                 }
             }
+        }
+    }
+    public void Ganador(){
+        Date dia = new Date();
+        String jugador1 = persona.getNombreUser();//nombre del jugador
+        String jugador2=jugador.getJugador2(); // heroes o villanos
+       String personajesUsados1= jugador.getJugador1();
+        String ganador="";
+        if ( personajesUsados1=="Heroes" ){
+            ganador=jugador1;
+            System.out.println("FELICIDADES "+ganador+" has ganado utilizando "+personajesUsados1+"SALVANDO la TIERRA!");
+        }else if (personajesUsados1=="Villanos"){
+            ganador=jugador1;
+            System.out.println("FELICIDADES "+ganador+" has ganado utilizando "+personajesUsados1+" CAPTURANDO la TIERRA");
+        }else if( jugador1 == persona.getNombreUser() && villanos.length==0){
+          ganador=jugador1;
+            System.out.println("FELICIDADES "+ganador+" usando HEROES ha ganado ya que los VILLANOS se han retirado del juego!");
         }
     }
     private int getRandom(int min, int max) {

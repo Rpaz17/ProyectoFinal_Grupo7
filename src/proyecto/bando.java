@@ -7,7 +7,8 @@ public class bando extends javax.swing.JFrame {
      TableroStratego tablero;
     VentaLogin ventana;
     Persona persona;
-
+    String jugador1;
+    String jugador2;
     
     public bando(VentaLogin ventana, Persona persona) {
         initComponents();
@@ -147,14 +148,24 @@ public class bando extends javax.swing.JFrame {
         TableroStratego tablero=new TableroStratego(ventana,persona);
         tablero.setVisible(true);
         this.setVisible(false);
+        jugador1="Villanos";
+        jugador2="Heroes";
     }//GEN-LAST:event_btn_villanosMouseClicked
 
     private void btn_heroesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_heroesMouseClicked
         TableroStratego tablero=new TableroStratego(ventana,persona);
         tablero.setVisible(true);
         this.setVisible(false);
+        jugador1="Heroes";
+       jugador2="Villanos";
     }//GEN-LAST:event_btn_heroesMouseClicked
 
+    public String getJugador1(){
+        return jugador1;
+    }
+    public String getJugador2(){
+        return jugador2;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_heroes;
     private javax.swing.JButton btn_regresar;
