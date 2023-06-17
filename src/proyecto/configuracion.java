@@ -41,6 +41,11 @@ public class configuracion extends javax.swing.JFrame {
         jPanel1.setOpaque(false);
 
         btn_tutorial.setText("TUTORIAL");
+        btn_tutorial.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_tutorialMouseClicked(evt);
+            }
+        });
         jPanel1.add(btn_tutorial);
 
         jPanel4.setOpaque(false);
@@ -60,6 +65,11 @@ public class configuracion extends javax.swing.JFrame {
         jPanel1.add(jSeparator1);
 
         btn_clasico.setText("CLASICO");
+        btn_clasico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_clasicoMouseClicked(evt);
+            }
+        });
         jPanel1.add(btn_clasico);
 
         jPanel3.setOpaque(false);
@@ -117,10 +127,26 @@ public class configuracion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_menuMouseClicked
-    menu_principal menu = new menu_principal(ventana,persona);
+     menu_principal menu = new menu_principal(ventana,persona);
     menu.setVisible(true);
     this.setVisible(false);
     }//GEN-LAST:event_btn_menuMouseClicked
+
+    private void btn_tutorialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_tutorialMouseClicked
+    settings llama= new settings();
+    llama.setTutorial(); 
+    menu_principal menu = new menu_principal(ventana,persona);
+    menu.setVisible(true);
+    this.setVisible(false);
+    }//GEN-LAST:event_btn_tutorialMouseClicked
+
+    private void btn_clasicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_clasicoMouseClicked
+    settings llama= new settings();
+    llama.setClasico(); 
+    menu_principal menu = new menu_principal(ventana,persona);
+    menu.setVisible(true);
+    this.setVisible(false);
+    }//GEN-LAST:event_btn_clasicoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

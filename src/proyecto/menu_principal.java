@@ -29,7 +29,7 @@ public class menu_principal extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
+        btn_stratego = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         btn_universo = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -47,14 +47,14 @@ public class menu_principal extends javax.swing.JFrame {
 
         jPanel5.setOpaque(false);
 
-        jButton4.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
-        jButton4.setText("STRATEGO MARVEL HEROES");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_stratego.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
+        btn_stratego.setText("STRATEGO MARVEL HEROES");
+        btn_stratego.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
+                btn_strategoMouseClicked(evt);
             }
         });
-        jPanel5.add(jButton4);
+        jPanel5.add(btn_stratego);
 
         jPanel10.setOpaque(false);
 
@@ -207,11 +207,11 @@ public class menu_principal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-    partida_nueva juego = new partida_nueva(ventana,persona);
-    juego.setVisible(true);
+    private void btn_strategoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_strategoMouseClicked
+    settings llamar = new settings();
+    llamar.click();
     this.setVisible(false);       
-    }//GEN-LAST:event_jButton4MouseClicked
+    }//GEN-LAST:event_btn_strategoMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
  configuracion set=  new configuracion(ventana,persona);
@@ -250,9 +250,9 @@ public class menu_principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CerrarSesion;
     private javax.swing.JButton MiPerfil;
+    private javax.swing.JButton btn_stratego;
     private javax.swing.JButton btn_universo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
