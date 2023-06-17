@@ -41,4 +41,8 @@ public class Cuadro extends javax.swing.JButton{
         Image resizedImage = img.getScaledInstance(resizedWidth, resizedHeight,  java.awt.Image.SCALE_SMOOTH);  
         return new ImageIcon(resizedImage);
     }
+
+    void setBackground(int TRANSLUCENT) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

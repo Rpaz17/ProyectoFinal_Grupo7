@@ -51,7 +51,7 @@ public class VentaLogin extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\pcast\\OneDrive\\Documentos\\NetBeansProjects\\New Folder\\lab1\\src\\Imagenes_rebeca\\TodosLosFondos\\fondo_LogIn.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_rebeca/TodosLosFondos/fondo_LogIn.png"))); // NOI18N
         jPanel1.add(jLabel2);
 
         jPanel11.setOpaque(false);
@@ -62,6 +62,7 @@ public class VentaLogin extends javax.swing.JFrame {
 
         jPanel4.setOpaque(false);
 
+        txtUser.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUserActionPerformed(evt);
@@ -166,6 +167,8 @@ public class VentaLogin extends javax.swing.JFrame {
         jPanel19.setOpaque(false);
 
         jPanel5.setOpaque(false);
+
+        txtContra.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
