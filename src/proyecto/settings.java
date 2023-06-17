@@ -13,10 +13,12 @@ public class settings {
     al click en btn_stratego llamara esta clase para obtener si es 1 muetrsa tutorial.frame si 0 muestra partida_nueva.frame
     SOLO CAMBIA MANUALMENTE COMO UN CICLO
     */
-    private int cuenta_configuracion=3;
-     private VentaLogin ventana;
-     private settings configuracion;
+    private int cuenta_configuracion;
+    private VentaLogin ventana;
+    private settings configuracion;
     private Persona persona;
+    private int contador = 0;//las veces que se ha dado click a configuracion
+    private int vecesStratego;
 
     public void setTutorial() {
         cuenta_configuracion = 1;
@@ -36,18 +38,21 @@ public class settings {
     public void setPersona(Persona persona) {
         this.persona = persona;
     }
-    public void click() {
-        if (cuenta_configuracion == 1) {
-            //tutorial menu = new tutorial(ventana, persona,configuracion);
-           // menu.setVisible(true);
-        } else if (cuenta_configuracion == 0) {
-           // partida_nueva juego = new partida_nueva(ventana, persona,configuracion);
-            //juego.setVisible(true);
-        } else if (cuenta_configuracion == 1) {
-            //partida_nueva juego = new partida_nueva(ventana, persona,configuracion);
-            //juego.setVisible(true);
-        }
-}
-
+    public void click() {//si es null se mostrara partida nueva SINO significa que se ha dado click y procede con getCuentaConfi...
+        contador++;
+    }
+    public int getContador() {
+        return contador;
+    }
+    public int clickStratego() {
+        return vecesStratego;
+    }
+    
+    /*
+    contador para si es primera vez que da click en btn_stratego sale tutorial, al dar click en salir de tutorial vyelve al menu
+    y si le da click a btn_jugar ahora sale la partida. este codigo sera valido si es la primera vez que hace log in asi que ocupo un contador
+    de log in, que si es la primera vez que ingresa el numero es 0 y se hara lo anterior, si no es la primera vez el numero sera 1 se aplicara esta
+    logica al clicn en btn_jugar    
+    */
 
 }

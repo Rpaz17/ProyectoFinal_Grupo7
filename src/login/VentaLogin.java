@@ -161,7 +161,7 @@ public class VentaLogin extends javax.swing.JFrame {
         Entrar.setBackground(new java.awt.Color(51, 51, 51));
         Entrar.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
         Entrar.setForeground(new java.awt.Color(255, 255, 255));
-        Entrar.setText("Entrar");
+        Entrar.setText("LOG IN");
         Entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EntrarActionPerformed(evt);
