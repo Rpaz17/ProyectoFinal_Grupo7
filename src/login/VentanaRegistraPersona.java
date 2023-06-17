@@ -1,5 +1,9 @@
 package login;
 
+import java.awt.Image;
+import java.io.IOException;
+import java.net.URL;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 
@@ -11,7 +15,19 @@ public class VentanaRegistraPersona extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(6);
         this.ventana = ventana;
+        ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_CrearPlayer.png");
+        fondo_registro.setIcon(icono);
+    }
 
+    private ImageIcon createImageIconFromURL(String imageUrl) {
+        try {
+            URL url = new URL(imageUrl);
+            Image image = javax.imageio.ImageIO.read(url);
+            return new ImageIcon(image);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
     
     @SuppressWarnings("unchecked")
@@ -19,7 +35,7 @@ public class VentanaRegistraPersona extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        fondo_registro = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -38,10 +54,9 @@ public class VentanaRegistraPersona extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_rebeca/TodosLosFondos/fondo_CrearPlayer.png"))); // NOI18N
-        jPanel1.add(jLabel2);
+        fondo_registro.setBackground(new java.awt.Color(0, 0, 0));
+        fondo_registro.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
+        jPanel1.add(fondo_registro);
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setOpaque(false);
@@ -195,7 +210,7 @@ public class VentanaRegistraPersona extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContrasenaActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtContrasenaActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
@@ -239,7 +254,7 @@ public class VentanaRegistraPersona extends javax.swing.JFrame {
 
             } //fin
             else{
-                JOptionPane.showMessageDialog(null, "Error: El password debe tener 5 caracteres o menos");
+                JOptionPane.showMessageDialog(null, "Error: El password debe tener 5 caracteres");
             }
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
@@ -248,7 +263,7 @@ public class VentanaRegistraPersona extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel fondo_registro;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;

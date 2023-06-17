@@ -1,26 +1,37 @@
 
 package proyecto;
 import login.*;
-
-import java.awt.Graphics;
 import java.awt.Image;
-import javax.swing.Icon;
+import java.io.IOException;
+import java.net.URL;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JPanel;
 
 public class menu_principal extends javax.swing.JFrame {
 
     Persona persona;
     VentaLogin ventana;
-    
-    public menu_principal(VentaLogin ventana, Persona persona) {
+    settings configuracion;
+    public menu_principal(VentaLogin ventana, Persona persona,settings configuracion) {
         initComponents();
        this.setExtendedState(6);
 
        // setLocationRelativeTo(this);
         this.persona = persona;
         this.ventana=ventana;
+        this.configuracion=configuracion;
+        ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_Menu.png");
+        fondoMenu.setIcon(icono);
+    }
+
+    private ImageIcon createImageIconFromURL(String imageUrl) {
+        try {
+            URL url = new URL(imageUrl);
+            Image image = javax.imageio.ImageIO.read(url);
+            return new ImageIcon(image);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -39,7 +50,7 @@ public class menu_principal extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        fondoMenu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,9 +165,7 @@ public class menu_principal extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_rebeca/TodosLosFondos/fondo_Menu.png"))); // NOI18N
-        jPanel2.add(jLabel2);
+        jPanel2.add(fondoMenu);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -208,15 +217,28 @@ public class menu_principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_strategoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_strategoMouseClicked
-    settings llamar = new settings();
-    llamar.click();
-    this.setVisible(false);       
+        configuracion.setVentaLogin(ventana);
+        configuracion.setPersona(persona);
+        configuracion.click();
+
+        if (configuracion.getCuentaConfiguracion() == 1) {
+            tutorial menu = new tutorial(ventana, persona,configuracion);
+            menu.setVisible(true);
+        } else if (configuracion.getCuentaConfiguracion() == 0) {
+            partida_nueva juego = new partida_nueva(ventana, persona,configuracion);
+            juego.setVisible(true);
+        } else if(configuracion.getCuentaConfiguracion()==3){
+            partida_nueva juego = new partida_nueva(ventana, persona,configuracion);
+            juego.setVisible(true);
+        }
+      
+        this.setVisible(false);         
     }//GEN-LAST:event_btn_strategoMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
- configuracion set=  new configuracion(ventana,persona);
-    set.setVisible(true);
-    this.setVisible(false);
+        configuracion set=  new configuracion(ventana,persona,configuracion);
+        set.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarSesionActionPerformed
@@ -227,33 +249,29 @@ public class menu_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_CerrarSesionActionPerformed
 
     private void MiPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MiPerfilActionPerformed
-        MiPerfil nose=new MiPerfil(ventana,persona);
+        MiPerfil nose=new MiPerfil(ventana,persona,configuracion);
         nose.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_MiPerfilActionPerformed
 
     private void CerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CerrarSesionMouseClicked
-   
         ventana.setVisible(true); // Vuelve a hacer visible la ventana de inicio de sesión
-    this.setVisible(false);
+        this.setVisible(false);
     }//GEN-LAST:event_CerrarSesionMouseClicked
 
     private void btn_universoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_universoMouseClicked
-        universo mostrar =new universo(ventana,persona);
+        universo mostrar =new universo(ventana,persona,configuracion);
         mostrar.setVisible(true);
         this.setVisible(false);
-        
-            // TODO add your handling code here:
     }//GEN-LAST:event_btn_universoMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CerrarSesion;
     private javax.swing.JButton MiPerfil;
     private javax.swing.JButton btn_stratego;
     private javax.swing.JButton btn_universo;
+    private javax.swing.JLabel fondoMenu;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;

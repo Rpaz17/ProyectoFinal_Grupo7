@@ -1,6 +1,10 @@
 
 package login;
-
+import proyecto.*;
+import java.awt.Image;
+import java.io.IOException;
+import java.net.URL;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class Eliminar extends javax.swing.JFrame {
@@ -9,14 +13,29 @@ public class Eliminar extends javax.swing.JFrame {
     Persona persona;
     ControladorLogin controlador;
     MiPerfil back;
+    settings configuracion;
     
-    public Eliminar(VentaLogin ventana, Persona persona) {
+    public Eliminar(VentaLogin ventana, Persona persona,settings configuracion) {
         initComponents();
         setLocationRelativeTo(this);
         this.setExtendedState(6);
         this.ventana = ventana;
         this.persona = persona;
+        this.configuracion=configuracion;
+        ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_Eliminar.png");
+        fondo_eliminar.setIcon(icono);
 
+    }
+
+    private ImageIcon createImageIconFromURL(String imageUrl) {
+        try {
+            URL url = new URL(imageUrl);
+            Image image = javax.imageio.ImageIO.read(url);
+            return new ImageIcon(image);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 
@@ -33,7 +52,7 @@ public class Eliminar extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         contra = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        fondo_eliminar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,9 +143,7 @@ public class Eliminar extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_rebeca/TodosLosFondos/fondo_Eliminar.png"))); // NOI18N
-        jPanel2.add(jLabel1);
+        jPanel2.add(fondo_eliminar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -154,8 +171,8 @@ public class Eliminar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuario eliminado existosamente");
             persona.setContrasena("");
             persona.setNombreUser(" ");             
-        ventana.setVisible(true);
-        this.setVisible(false);
+            ventana.setVisible(true);
+            this.setVisible(false);
         
         }else{
         JOptionPane.showMessageDialog(null, "Error: contraseña incorrecta");    
@@ -165,7 +182,7 @@ public class Eliminar extends javax.swing.JFrame {
     }//GEN-LAST:event_EliminarActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
-            MiPerfil regresar=new MiPerfil(ventana,persona);
+        MiPerfil regresar=new MiPerfil(ventana,persona,configuracion);
         regresar.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_volverActionPerformed
@@ -174,7 +191,7 @@ public class Eliminar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Eliminar;
     private javax.swing.JPasswordField contra;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel fondo_eliminar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

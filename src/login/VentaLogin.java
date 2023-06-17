@@ -1,24 +1,33 @@
 package login;
-import login.*;
 import proyecto.*;
-import grupo7_poryectofinalsm.*;
-
-
-import javax.swing.JFrame;
+import java.awt.Image;
+import java.io.IOException;
+import java.net.URL;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
-
-
 
 public class VentaLogin extends javax.swing.JFrame {
     
     ControladorLogin controlador;
     Persona persona;
-
+    settings configuracion;
     public VentaLogin() {
         initComponents();
         this.setExtendedState(6);
         this.controlador = new ControladorLogin();
+        ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_LogIn.png");
+        fondo_login.setIcon(icono);
+    }
+
+    private ImageIcon createImageIconFromURL(String imageUrl) {
+        try {
+            URL url = new URL(imageUrl);
+            Image image = javax.imageio.ImageIO.read(url);
+            return new ImageIcon(image);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public ControladorLogin getControlador() {
@@ -30,7 +39,7 @@ public class VentaLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        fondo_login = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
@@ -50,9 +59,7 @@ public class VentaLogin extends javax.swing.JFrame {
         setExtendedState(6);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_rebeca/TodosLosFondos/fondo_LogIn.png"))); // NOI18N
-        jPanel1.add(jLabel2);
+        jPanel1.add(fondo_login);
 
         jPanel11.setOpaque(false);
 
@@ -285,7 +292,7 @@ public class VentaLogin extends javax.swing.JFrame {
             usuario encontrado
             */
             if (aux.getContrasena().equals(contra)) {
-                menu_principal display = new menu_principal(this,aux);
+                menu_principal display = new menu_principal(this,aux,configuracion);
                 display.setVisible(true);
                 this.setVisible(false);
 
@@ -304,20 +311,11 @@ public class VentaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUserActionPerformed
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                VentaLogin ventana = new VentaLogin();
-                ventana.setVisible(true);
-                ventana.setLocationRelativeTo(null);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Entrar;
     private javax.swing.JButton Registrar;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel fondo_login;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;

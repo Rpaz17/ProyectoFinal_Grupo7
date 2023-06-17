@@ -1,6 +1,10 @@
 
 package login;
-
+import proyecto.*;
+import java.awt.Image;
+import java.io.IOException;
+import java.net.URL;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class CambiarPassword extends javax.swing.JFrame {
@@ -9,13 +13,28 @@ public class CambiarPassword extends javax.swing.JFrame {
     Persona persona;
     ControladorLogin controlador;
     Eliminar delete;
+    settings configuracion;
 
-    public CambiarPassword(VentaLogin ventana, Persona persona) {
+    public CambiarPassword(VentaLogin ventana, Persona persona,settings configuracion) {
         initComponents();
         setLocationRelativeTo(this);
         this.setExtendedState(6);
         this.ventana = ventana;
         this.persona = persona;
+        this.configuracion=configuracion;
+        ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_CambiarPassword.png");
+        jLabel4.setIcon(icono);
+    }
+
+    private ImageIcon createImageIconFromURL(String imageUrl) {
+        try {
+            URL url = new URL(imageUrl);
+            Image image = javax.imageio.ImageIO.read(url);
+            return new ImageIcon(image);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -28,8 +47,8 @@ public class CambiarPassword extends javax.swing.JFrame {
         txtnuevacontra = new javax.swing.JPasswordField();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btn_cambiar = new javax.swing.JButton();
+        btn_volver = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         txtviejacontra = new javax.swing.JPasswordField();
@@ -69,23 +88,23 @@ public class CambiarPassword extends javax.swing.JFrame {
 
         jPanel5.setOpaque(false);
 
-        jButton2.setBackground(new java.awt.Color(51, 51, 51));
-        jButton2.setFont(new java.awt.Font("Game Of Squids", 0, 22)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Cambiar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_cambiar.setBackground(new java.awt.Color(51, 51, 51));
+        btn_cambiar.setFont(new java.awt.Font("Game Of Squids", 0, 22)); // NOI18N
+        btn_cambiar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_cambiar.setText("Cambiar");
+        btn_cambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_cambiarActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 51));
-        jButton1.setFont(new java.awt.Font("Game Of Squids", 0, 22)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Volver");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_volver.setBackground(new java.awt.Color(51, 51, 51));
+        btn_volver.setFont(new java.awt.Font("Game Of Squids", 0, 22)); // NOI18N
+        btn_volver.setForeground(new java.awt.Color(255, 255, 255));
+        btn_volver.setText("Volver");
+        btn_volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_volverActionPerformed(evt);
             }
         });
 
@@ -94,17 +113,17 @@ public class CambiarPassword extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jButton2)
+                .addComponent(btn_cambiar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1001, Short.MAX_VALUE)
-                .addComponent(jButton1))
+                .addComponent(btn_volver))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(btn_cambiar)
+                    .addComponent(btn_volver))
                 .addGap(33, 33, 33))
         );
 
@@ -160,7 +179,6 @@ public class CambiarPassword extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_rebeca/TodosLosFondos/fondo_CambiarPassword.png"))); // NOI18N
         jPanel6.add(jLabel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -185,13 +203,13 @@ public class CambiarPassword extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        MiPerfil regresar=new MiPerfil(ventana,persona);
+    private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
+        MiPerfil regresar=new MiPerfil(ventana,persona,configuracion);
         regresar.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_volverActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_cambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cambiarActionPerformed
   
         
         String viejacontra=txtviejacontra.getText();
@@ -216,12 +234,12 @@ public class CambiarPassword extends javax.swing.JFrame {
          }
         
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_cambiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_cambiar;
+    private javax.swing.JButton btn_volver;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;

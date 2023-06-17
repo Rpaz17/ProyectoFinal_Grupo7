@@ -189,12 +189,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes_rebeca/TodosLosFondos/fondo_Eliminar.png"/>
-            </Property>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="fondo_eliminar">
         </Component>
       </SubComponents>
     </Container>

@@ -4,6 +4,9 @@
  */
 package proyecto;
 import grupo7_poryectofinalsm.*;
+import java.awt.Image;
+import java.io.IOException;
+import java.net.URL;
 import login.*;
 import login.Persona;
 import java.util.Arrays;
@@ -11,18 +14,36 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import java.util.stream.Collectors;
+import javax.swing.ImageIcon;
 //tiene que funcionar
 public class oponente extends javax.swing.JFrame {
     VentaLogin ventana;
     Persona persona;
     ControladorLogin controladorLogin;
-    public oponente(VentaLogin ventana, Persona persona) {
+    settings configuracion;
+    public oponente(VentaLogin ventana, Persona persona,settings configuracion) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.ventana = ventana;
         this.persona = persona;
+        this.configuracion=configuracion;
         this.controladorLogin = ventana.getControlador();
         inicializarComboBox();
+        ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_Oponente.png");
+        fondoOponente.setIcon(icono);
+        ImageIcon partida = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/proyecto/btn_regreso/btn_regreso.png");
+        btn_regresar.setIcon(partida);
+    }
+    
+    private ImageIcon createImageIconFromURL(String imageUrl) {
+        try {
+            URL url = new URL(imageUrl);
+            Image image = javax.imageio.ImageIO.read(url);
+            return new ImageIcon(image);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private void inicializarComboBox() {      
@@ -38,7 +59,6 @@ public class oponente extends javax.swing.JFrame {
         comboBox_oponente.setModel(comboBoxModel);//actualizamos el modelo
     }
 
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -53,7 +73,7 @@ public class oponente extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        fondoOponente = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,7 +82,6 @@ public class oponente extends javax.swing.JFrame {
 
         jPanel2.setOpaque(false);
 
-        btn_regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto/btn_regreso/btn_regreso.png"))); // NOI18N
         btn_regresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_regresarMouseClicked(evt);
@@ -72,8 +91,9 @@ public class oponente extends javax.swing.JFrame {
 
         jPanel4.setOpaque(false);
 
-        btn_continuar.setBackground(new java.awt.Color(204, 204, 204));
+        btn_continuar.setBackground(new java.awt.Color(51, 51, 51));
         btn_continuar.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
+        btn_continuar.setForeground(new java.awt.Color(255, 255, 255));
         btn_continuar.setText("CONTINUAR");
         btn_continuar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -117,7 +137,7 @@ public class oponente extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(241, Short.MAX_VALUE)
+                .addContainerGap(304, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(124, 124, 124)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,9 +149,7 @@ public class oponente extends javax.swing.JFrame {
         );
 
         jPanel7.setBackground(new java.awt.Color(0, 0, 0));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes_rebeca/TodosLosFondos/fondo_Oponente.png"))); // NOI18N
-        jPanel7.add(jLabel3);
+        jPanel7.add(fondoOponente);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -153,14 +171,13 @@ public class oponente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_continuarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_continuarMouseClicked
-    //cambie esto
         String texto = jLabel2.getText();
         if (texto.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Debe seleccionar un oponente");
         } else {
             int confirmacion = JOptionPane.showConfirmDialog(this, "¿Está seguro de continuar?", "Oponente "+texto, JOptionPane.YES_NO_OPTION);
             if (confirmacion == JOptionPane.YES_OPTION) {
-                bando ventana1 = new bando(ventana,persona);
+                bando ventana1 = new bando(ventana,persona,configuracion);
                 ventana1.setVisible(true);
                 this.setVisible(false);
             }
@@ -168,58 +185,23 @@ public class oponente extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_continuarMouseClicked
 
     private void btn_regresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_regresarMouseClicked
-    partida_nueva menu = new partida_nueva(ventana,persona);
-    menu.setVisible(true);
-    this.setVisible(false);          // TODO add your handling code here:
+        partida_nueva menu = new partida_nueva(ventana,persona,configuracion);
+        menu.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btn_regresarMouseClicked
 
     private void comboBox_oponenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBox_oponenteActionPerformed
-    String label=""; 
-    label=label+comboBox_oponente.getSelectedItem().toString();
-    jLabel2.setText(label);
+        String label=""; 
+        label=label+comboBox_oponente.getSelectedItem().toString();
+        jLabel2.setText(label);
     }//GEN-LAST:event_comboBox_oponenteActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(oponente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(oponente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(oponente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(oponente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-       
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_continuar;
     private javax.swing.JButton btn_regresar;
     private javax.swing.JComboBox<String> comboBox_oponente;
+    private javax.swing.JLabel fondoOponente;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

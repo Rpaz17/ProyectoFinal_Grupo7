@@ -57,12 +57,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel2">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes_rebeca/TodosLosFondos/fondo_LogIn.png"/>
-            </Property>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="fondo_login">
         </Component>
       </SubComponents>
     </Container>
