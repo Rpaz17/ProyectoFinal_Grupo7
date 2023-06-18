@@ -25,7 +25,7 @@ public class settings {
     }
 
     public void setClasico() {
-        cuenta_configuracion = 0;
+        cuenta_configuracion = 2;
     }
 
     public int getCuentaConfiguracion() {

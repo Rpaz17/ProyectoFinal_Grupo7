@@ -1,4 +1,3 @@
-
 package login;
 
 public class Persona {
@@ -10,10 +9,12 @@ public class Persona {
 
     private String nombreUser;
     private String contrasena;
+    private int juegos;
 
     public Persona(String nombreUser, String contrasena) {
       this.nombreUser = nombreUser;
         this.contrasena = contrasena;
+        this.juegos=0;
     }
 
     public String getNombreUser() {
@@ -31,5 +32,11 @@ public class Persona {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-
+    public void setjuego(int veces) {
+       juegos = veces;
+    }
+    public int getjuego(){
+        return juegos;
+    }
 }
+
