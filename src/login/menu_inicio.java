@@ -19,7 +19,7 @@ public class menu_inicio extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(6);
         this.ventana = ventana;
-        ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/f2730ea73c2572b7670beb1b3eae93cf720ca8ff/src/Imagenes_rebeca/INICIO%20PRINCIPAL%20STRATEGO.png");
+        ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/aee49d2f5cee8a3748a291a24f7be711c23ce444/src/Imagenes_rebeca/TodosLosFondos/menu_inicial.png");
         fondo_MenuInicio.setIcon(icono);
     }
 
