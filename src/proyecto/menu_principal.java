@@ -48,7 +48,7 @@ public class menu_principal extends javax.swing.JFrame {
         CerrarSesion = new javax.swing.JButton();
         MiPerfil = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btn_configuracion = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         fondoMenu = new javax.swing.JLabel();
 
@@ -139,12 +139,12 @@ public class menu_principal extends javax.swing.JFrame {
 
         jPanel8.setOpaque(false);
 
-        jButton1.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
-        jButton1.setText("CONFIGURACION");
-        jButton1.setOpaque(true);
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_configuracion.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
+        btn_configuracion.setText("CONFIGURACION");
+        btn_configuracion.setOpaque(true);
+        btn_configuracion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btn_configuracionMouseClicked(evt);
             }
         });
 
@@ -154,14 +154,14 @@ public class menu_principal extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(72, 72, 72)
-                .addComponent(jButton1)
+                .addComponent(btn_configuracion)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(jButton1))
+                .addComponent(btn_configuracion))
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -217,29 +217,35 @@ public class menu_principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_strategoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_strategoMouseClicked
+    if (configuracion != null) {
         configuracion.setVentaLogin(ventana);
         configuracion.setPersona(persona);
         configuracion.click();
 
-        if (configuracion.getCuentaConfiguracion() == 1) {
-            tutorial menu = new tutorial(ventana, persona,configuracion);
-            menu.setVisible(true);
-        } else if (configuracion.getCuentaConfiguracion() == 0) {
-            partida_nueva juego = new partida_nueva(ventana, persona,configuracion);
-            juego.setVisible(true);
-        } else if(configuracion.getCuentaConfiguracion()==3){
-            partida_nueva juego = new partida_nueva(ventana, persona,configuracion);
-            juego.setVisible(true);
+        if (configuracion.getContador() == 1) {
+            if (configuracion.getCuentaConfiguracion() == 1) {
+                tutorial menu = new tutorial(ventana, persona, configuracion);
+                menu.setVisible(true);
+            } else if (configuracion.getCuentaConfiguracion() == 0) {
+                partida_nueva juego = new partida_nueva(ventana, persona, configuracion);
+                juego.setVisible(true);
+            }
+        } else {
+            configuracion instanciaConfiguracion = new configuracion(ventana, persona, configuracion);
+            instanciaConfiguracion.setVisible(true);
         }
-      
-        this.setVisible(false);         
+    } else {
+        partida_nueva juego = new partida_nueva(ventana, persona, configuracion);
+        juego.setVisible(true);
+    }
+    this.setVisible(false);       
     }//GEN-LAST:event_btn_strategoMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void btn_configuracionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_configuracionMouseClicked
         configuracion set=  new configuracion(ventana,persona,configuracion);
         set.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_btn_configuracionMouseClicked
 
     private void CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarSesionActionPerformed
     //daba error por este llamado repetido en el mouseClicked      
@@ -268,10 +274,10 @@ public class menu_principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CerrarSesion;
     private javax.swing.JButton MiPerfil;
+    private javax.swing.JButton btn_configuracion;
     private javax.swing.JButton btn_stratego;
     private javax.swing.JButton btn_universo;
     private javax.swing.JLabel fondoMenu;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
