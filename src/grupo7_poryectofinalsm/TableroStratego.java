@@ -193,6 +193,7 @@ public class TableroStratego extends JFrame {
     }
      
     private void botonesMouseClicked(MouseEvent evt) {
+        menu_principal regresar=new menu_principal(ventana,persona,configuracion);
          Object source = evt.getSource();
         Cuadro botonPresionado = ((Cuadro) source);
         int f=botonPresionado.fila;
@@ -281,31 +282,35 @@ public class TableroStratego extends JFrame {
                                         && !(botonPresionado.character.Nombre.equals("Nova Blast") && botonInicio.character.Tipo.equals("Heroe"))){ 
                             botonInicio.setBorder(BorderFactory.createEmptyBorder());
                             if ((botonInicio.character.Nivel==10 && botonPresionado.character.Nivel==1)){
-                                 JOptionPane.showMessageDialog(null, botonPresionado.character.Nombre+" con Rango"+botonPresionado.character.Nivel+" venció a una"+botonInicio.character.Nombre+" con Rango "+botonInicio.character.Nivel+" !");
+                                 JOptionPane.showMessageDialog(null, botonPresionado.character.Nombre+" con Rango"+botonPresionado.character.Nivel+" venció una "+botonInicio.character.Nombre+" con Rango "+botonInicio.character.Nivel+" !");
                                 botonInicio.character=null;
                                 botonInicio.setText(" ");
                             } else if((botonInicio.character.Nivel==1 && botonPresionado.character.Nivel==10)){
-                                  JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" con Rango"+botonInicio.character.Nivel+" venció a una"+botonPresionado.character.Nombre+" con Rango "+botonPresionado.character.Nivel+" !");
+                                  JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" con Rango"+botonInicio.character.Nivel+" venció una "+botonPresionado.character.Nombre+" con Rango "+botonPresionado.character.Nivel+" !");
                                 botonPresionado.character=null;
                                 botonPresionado.setText(" ");
                             }else if((botonInicio.character.Nivel==3 && botonPresionado.character.Nivel==11)){
-                                JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" con Rango"+botonInicio.character.Nivel+" venció a una"+botonPresionado.character.Nombre+"!");
+                                JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" con Rango"+botonInicio.character.Nivel+" venció una "+botonPresionado.character.Nombre+"!");
                                 botonPresionado.character=null;
                                 botonPresionado.setText(" ");
-                            } else if ((botonPresionado.character.Tipo.equals("tierraV"))){ 
-                                botonPresionado.character=botonInicio.character;
-                                 Ganador();
-                                botonInicio.character=null;
-                                botonInicio.setText("");
-                                ganadorHeroe=true;
-                                ganadorVillano=false;
-                            }else if(botonPresionado.character.Tipo.equals("tierraH")){
-                                Ganador();
+                            } else if ((botonPresionado.character.Nombre.equals("Tierra Villanos"))){ 
+                                int fin = JOptionPane.showConfirmDialog(null, "FELICIDADES HEROES SALVARON LA TIERRA Y DERROTARON A LOS VILLANOS!", "FIN DE LA PARTIDA",JOptionPane.OK_OPTION);
+                               if(fin==JOptionPane.OK_OPTION){
                                 botonPresionado.character=botonInicio.character;
                                 botonInicio.character=null;
                                 botonInicio.setText("");
-                                ganadorVillano=true;
-                                ganadorHeroe=false;
+                                regresar.setVisible(true);
+                                this.setVisible(false);
+                               }
+                            }else if( (botonPresionado.character.Nombre.equals("Tierra Heroes"))){
+                                 int fin = JOptionPane.showConfirmDialog(null, "FELICIDADES VILLANOS CAPTURARON LA TIERRA Y DERROTARON A LOS HEROES!", "FIN DE LA PARTIDA",JOptionPane.OK_OPTION);
+                               if(fin==JOptionPane.OK_OPTION){
+                                botonPresionado.character=botonInicio.character;
+                                botonInicio.character=null;
+                                botonInicio.setText("");
+                                regresar.setVisible(true);
+                                this.setVisible(false);
+                               }
                             }else {
                                 if(botonInicio.character.Nivel>botonPresionado.character.Nivel){
                                     JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" de Rango "+botonInicio.character.Nivel+" VS "+botonPresionado.character.Nombre+" de Rango "+botonPresionado.character.Nivel+"\n\n"+botonPresionado.character.Nombre+" fue derrotado por "+botonInicio.character.Nombre);
@@ -532,29 +537,28 @@ public class TableroStratego extends JFrame {
         }
     }
     public boolean Ganador(){
-        menu_principal regresar=new menu_principal(ventana,persona,configuracion);
 //        String jugador1 = persona.getNombreUser(); //nombre del jugador
 //        String personajesUsados1=jugador.getJugador2(); // heroes o villanos
 //       String personajesUsados2= jugador.getJugador1();
         if ( ganadorHeroe==true && ganadorVillano==false){
             JOptionPane.showMessageDialog(null,"FElLICIDADES HEROES LE HAN GANADO A LOS VILLANOS SALVANDO LA TIERRA", "FIN DE LA PARTIDA", HEIGHT);
-            regresar.setVisible(true);
+
             this.setVisible(false);
         }else if(ganadorHeroe==true && villanos.length==0){
             JOptionPane.showMessageDialog(null,"FElLICIDADES HEROES LE HAN GANADO A LOS VILLANOS YA QUE LOS VILLANOS SE HAN QUEDADO SIN MOVIMIENTOS", "FIN DE LA PARTIDA", HEIGHT);
-            regresar.setVisible(true);
+
             this.setVisible(false);
         } else if (ganadorVillano==true && ganadorHeroe==false){
             JOptionPane.showMessageDialog(null, "FELICIDADES VILLANOS LE HAN GANADO A LOS HEROES CAPTURANDO LA TIERRA!", "FIN DE LA PARTIDA", HEIGHT);
-            regresar.setVisible(true);
+
             this.setVisible(false);
         }else if(ganadorVillano==true && heroes.length==0){
              JOptionPane.showMessageDialog(null,"FElLICIDADES VILLANOS LE HAN GANADO A LOS HEROES YA QUE LOS HEROES SE HAN QUEDADO SIN MOVIMIENTOS", "FIN DE LA PARTIDA", HEIGHT);
-            regresar.setVisible(true);
+
             this.setVisible(false);
         }else if( ganadorVillano==false && ganadorHeroe==false && villanos.length==0 && heroes.length==0){
             JOptionPane.showMessageDialog(null, "QUEDARON EN EMPATE!", "FIN DE LA PARTIDA", HEIGHT);
-             regresar.setVisible(true);
+
             this.setVisible(false);
         }
          this.setVisible(false);
