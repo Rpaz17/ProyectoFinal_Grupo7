@@ -57,6 +57,7 @@ public class Eliminar extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setOpaque(false);
 
         jPanel4.setOpaque(false);
 
