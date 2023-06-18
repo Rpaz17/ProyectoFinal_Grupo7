@@ -217,16 +217,29 @@ public class menu_principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_strategoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_strategoMouseClicked
-    if (persona.getjuego() == 0 ) {
-        tutorial menu = new tutorial(ventana, persona, configuracion);
-        persona.setjuego(2);
-        menu.setVisible(true);
-        this.setVisible(false);
-    } else if (persona.getjuego() > 0 && configuracion == null) {
-        partida_nueva juego = new partida_nueva(ventana, persona, configuracion);
-        juego.setVisible(true);
-        this.setVisible(false);
-    }      
+
+    if(configuracion==null || configuracion.getCuentaConfiguracion()==0){
+        if (persona.getjuego() == 0 ) {
+            tutorial menu = new tutorial(ventana, persona, configuracion);
+            persona.setjuego(2);
+            menu.setVisible(true);
+            this.setVisible(false);
+        } else if (persona.getjuego() > 0 && configuracion == null) {
+            partida_nueva juego = new partida_nueva(ventana, persona, configuracion);
+            juego.setVisible(true);
+            this.setVisible(false);
+        }
+    }else if(configuracion!=null || configuracion.getCuentaConfiguracion()>=1) {
+        if (configuracion.getCuentaConfiguracion() == 1) {
+            tutorial menu = new tutorial(ventana, persona,configuracion);
+            menu.setVisible(true);
+            this.setVisible(false);
+        } else if (configuracion.getCuentaConfiguracion() == 2) {
+            partida_nueva juego = new partida_nueva(ventana, persona,configuracion);
+            juego.setVisible(true);
+            this.setVisible(false);
+        } 
+    } 
     }//GEN-LAST:event_btn_strategoMouseClicked
 
     private void btn_configuracionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_configuracionMouseClicked

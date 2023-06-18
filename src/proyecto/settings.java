@@ -13,12 +13,11 @@ public class settings {
     al click en btn_stratego llamara esta clase para obtener si es 1 muetrsa tutorial.frame si 0 muestra partida_nueva.frame
     SOLO CAMBIA MANUALMENTE COMO UN CICLO
     */
-    private int cuenta_configuracion;
+    private int cuenta_configuracion=0;
     private VentaLogin ventana;
     private settings configuracion;
     private Persona persona;
     private int contador = 0;//las veces que se ha dado click a configuracion
-    private int vecesStratego;
 
     public void setTutorial() {
         cuenta_configuracion = 1;
@@ -44,9 +43,7 @@ public class settings {
     public int getContador() {
         return contador;
     }
-    public int clickStratego() {
-        return vecesStratego;
-    }
+}
     
     /*
     contador para si es primera vez que da click en btn_stratego sale tutorial, al dar click en salir de tutorial vyelve al menu
@@ -55,4 +52,3 @@ public class settings {
     logica al clicn en btn_jugar    
     */
 
-}
