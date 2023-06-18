@@ -23,7 +23,8 @@ public class TableroStratego extends JFrame {
      private Personaje tierraH;
      private Personaje tierraV;
      private String turnoPara="Heroe";
-     
+      boolean ganadorHeroe=true;
+      boolean ganadorVillano=false;
      private Cuadro botonInicio;
      private Cuadro botonFinal;
      
@@ -290,11 +291,14 @@ public class TableroStratego extends JFrame {
                             }else if((botonInicio.character.Nivel==11 && botonPresionado.character.Nivel==3)){
                                  botonInicio.character=null;
                                  botonInicio.setText(" ");
-                            } else if ((botonInicio.character.Tipo.equals("Heroe") && botonPresionado.character.Nombre.equals("Tierra Villanos"))){ 
+                            } else if ((botonPresionado.character.Tipo.equals("tierraV"))){ 
                                 botonPresionado.character=botonInicio.character;
                                 botonInicio.character=null;
                                 botonInicio.setText("");
                                 Ganador();
+                                ganadorHeroe=true;
+                                ganadorVillano=false;
+                            }else if(botonPresionado.character.Tipo.equals("tierraH")){
                                 
                             }else {
                                 if(botonInicio.character.Nivel>botonPresionado.character.Nivel){
@@ -517,23 +521,20 @@ public class TableroStratego extends JFrame {
             }
         }
     }
-    public void Ganador(){
+    public boolean Ganador(){
         Date dia = new Date();
         String jugador1 = persona.getNombreUser();//nombre del jugador
 //        String personajesUsados1=jugador.getJugador2(); // heroes o villanos
 //       String personajesUsados2= jugador.getJugador1();
-        String ganador="";
         info_termina_partida mostrargan = new info_termina_partida(ventana,persona,configuracion);
-        if ( character.equals("Heroes") ){
-            ganador=jugador1;
+        if ( ganadorHeroe==true && ganadorVillano==false){
             JOptionPane.showMessageDialog(rootPane,"FElLICIDADES HEROES LE HAN GANADO A LOS VILLANOS SALVANDO LA TIERRA", "FIN DE LA PARTIDA", HEIGHT);
-        }else if (personajesUsados2.equals("Villanos")){
-            ganador=jugador1;
-            System.out.println("FELICIDADES "+ganador+" has ganado utilizando "+personajesUsados2+" CAPTURANDO la TIERRA");
-        }else if( jugador1 == persona.getNombreUser() && villanos.length==0){
-          ganador=jugador1;
-            System.out.println("FELICIDADES "+ganador+" usando HEROES ha ganado ya que los VILLANOS se han retirado del juego!");
+        }else if (ganadorVillano=true && ganadorHeroe==false){
+            JOptionPane.showMessageDialog(rootPane, "FELICIDADES VILLANOS LE HAN GANADO A LOS HEROES CAPTURANDO LA TIERRA!", "FIN DE LA PARTIDA", HEIGHT);
+        }else if( ganadorVillano!=true && ganadorHeroe!=true){
+            JOptionPane.showMessageDialog(rootPane, "QUEDARON EN EMPATE!", "FIN DE LA PARTIDA", HEIGHT);
         }
+        return false;
     }
     private int getRandom(int min, int max) {
         return (int)Math.floor(Math.random() * (max - min + 1) + min);
