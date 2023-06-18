@@ -22,10 +22,10 @@ public class configuracion extends javax.swing.JFrame {
         this.instanciaSettings = new settings();
         ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/Fondo_Configuarcion.png");
         fondoConfiguracion.setIcon(icono);
-       // ImageIcon tutorial= createImageIconFromURL();
-       // btn_tutorial.setIcon(tutorial);
-       // ImageIcon clasico= createImageIconFromURL();
-        //btn_clasico.setIcon(clasico);
+        ImageIcon tutorial= createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/1c2cb54ecca94abefc815d0c1ffd5d414c5717f2/src/proyecto/imagen_STRATEGO/btn_modo/Diapositiva1.PNG");
+        btn_tutorial.setIcon(tutorial);
+        ImageIcon clasico= createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/1c2cb54ecca94abefc815d0c1ffd5d414c5717f2/src/proyecto/imagen_STRATEGO/btn_modo/Diapositiva2.PNG");
+        btn_clasico.setIcon(clasico);
         ImageIcon menu= createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/proyecto/btn_regreso/btn_menuPrincipal.png");
         btn_menu.setIcon(menu);
 
@@ -67,7 +67,6 @@ public class configuracion extends javax.swing.JFrame {
 
         jPanel1.setOpaque(false);
 
-        btn_tutorial.setText("TUTORIAL");
         btn_tutorial.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_tutorialMouseClicked(evt);
@@ -91,7 +90,6 @@ public class configuracion extends javax.swing.JFrame {
         jPanel1.add(jPanel4);
         jPanel1.add(jSeparator1);
 
-        btn_clasico.setText("CLASICO");
         btn_clasico.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_clasicoMouseClicked(evt);
