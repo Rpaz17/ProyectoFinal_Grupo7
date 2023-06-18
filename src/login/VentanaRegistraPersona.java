@@ -69,6 +69,8 @@ public class VentanaRegistraPersona extends javax.swing.JFrame {
 
         jPanel11.setOpaque(false);
 
+        txtNombreUser.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
@@ -108,6 +110,7 @@ public class VentanaRegistraPersona extends javax.swing.JFrame {
 
         jPanel14.setOpaque(false);
 
+        txtContrasena.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
         txtContrasena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContrasenaActionPerformed(evt);
