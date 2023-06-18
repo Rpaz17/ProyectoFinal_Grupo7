@@ -29,6 +29,7 @@ public class universo extends javax.swing.JFrame {
         this.configuracion=configuracion;
         this.controladorLogin = ventana.getControlador();
         actualizarHistorico();
+        actualizarActivos();
         ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_Universo.png");
         fondo_universo.setIcon(icono);
         ImageIcon menu= createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/proyecto/btn_regreso/btn_menuPrincipal.png");
@@ -56,6 +57,20 @@ public class universo extends javax.swing.JFrame {
     private void actualizarHistorico() {
         int numeroUsuariosRegistrados = obtenerNumeroUsuariosRegistrados();
         historico.setText(""+numeroUsuariosRegistrados);
+    }
+    private int obtenerNumeroUsuariosActivos() {
+        Persona[] arregloPersonas = controladorLogin.getArregloPersonas();
+        String usuario = persona.getNombreUser();
+
+        long numeroPersonas = Arrays.stream(arregloPersonas)
+                                .filter(p -> p != null && !p.getNombreUser().equals(" "))
+                                .count();
+
+        return (int) numeroPersonas + 1;
+    }
+    private void actualizarActivos() {
+        int numeroUsuariosActivos = obtenerNumeroUsuariosActivos();
+        activos.setText(String.valueOf(numeroUsuariosActivos));
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
