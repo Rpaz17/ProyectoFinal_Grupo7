@@ -69,7 +69,7 @@ public class VentaLogin extends javax.swing.JFrame {
 
         jPanel4.setOpaque(false);
 
-        txtUser.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
+        txtUser.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUserActionPerformed(evt);
@@ -175,7 +175,7 @@ public class VentaLogin extends javax.swing.JFrame {
 
         jPanel5.setOpaque(false);
 
-        txtContra.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
+        txtContra.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
