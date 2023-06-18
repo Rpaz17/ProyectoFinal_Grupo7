@@ -4,11 +4,13 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.awt.GridLayout;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import login.*;
 import proyecto.*;
 import java.util.Date;
 import proyecto.info_termina_partida;
 import proyecto.menu_principal;
+import java.net.URL;
         
 public class TableroStratego extends JFrame {
     private Cuadro[][] botones = new Cuadro[10][10];
@@ -24,8 +26,8 @@ public class TableroStratego extends JFrame {
      private Personaje tierraH;
      private Personaje tierraV;
      private String turnoPara="Heroe";
-      boolean ganadorHeroe=true;
-      boolean ganadorVillano=false;
+     boolean ganadorHeroe=true;
+     boolean ganadorVillano=false;
      private Cuadro botonInicio;
      private Cuadro botonFinal;
      
@@ -38,9 +40,21 @@ public class TableroStratego extends JFrame {
         this.configuracion=configuracion;
         initPersonajes();
         setPersonajes();
-        
+       // ImageIcon Hoculto = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/afbb93404a004705af80255aef50734f90ccee25/src/Imagenes_rebeca/bombaH/Hoculto.png");
+//   botones[0][colTV].setIcon(Hoculto);
+       // ImageIcon Voculto = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/afbb93404a004705af80255aef50734f90ccee25/src/Imagenes_rebeca/bombaV/Voculto.png");
+//   botones[0][colTV-1].setIcon(Voculto);
     }
-
+    private ImageIcon createImageIconFromURL(String imageUrl) {
+        try {
+            URL url = new URL(imageUrl);
+            Image image = javax.imageio.ImageIO.read(url);
+            return new ImageIcon(image);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -428,6 +442,7 @@ public class TableroStratego extends JFrame {
     
     private void setPersonajes(){
         //ubicando tierra y bombas de heroes
+
         int colTH = getRandom(1,8);
         botones[9][colTH].setText("Tierra H");
         botones[9][colTH].SetCharacter(tierraH);
@@ -470,16 +485,21 @@ public class TableroStratego extends JFrame {
         }
         // ubicando bombas y tierra villanos
         int colTV = getRandom(1,8);
-        botones[0][colTV].setText("????");
+        ImageIcon desconocido = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/d0016110e6a873f41cc9b232ddf9fdb2bccd5c7a/src/Imagenes_rebeca/desconocido.png");
+        botones[0][colTV].setIcon(desconocido);
+      //  ImageIcon Voculto = createImageIconFromURL("");
+       //botones[0][colTV-1].setIcon(Voculto);
+       
+            botones[0][colTV].setIcon(desconocido);
         botones[0][colTV].SetCharacter(tierraV);
         botones[0][colTV].habilitado=false;
-        botones[0][colTV-1].setText("????");
+        botones[0][colTV-1].setIcon(desconocido);
         botones[0][colTV-1].SetCharacter(bombaV);
         botones[0][colTV-1].habilitado=false;
-        botones[0][colTV+1].setText("????");
+        botones[0][colTV+1].setIcon(desconocido);
         botones[0][colTV+1].SetCharacter(bombaV);
         botones[0][colTV+1].habilitado=false;
-        botones[1][colTV].setText("????");
+        botones[1][colTV].setIcon(desconocido);
         botones[1][colTV].SetCharacter(bombaV);
         botones[1][colTV].habilitado=false;
         int pb=1;
@@ -487,7 +507,7 @@ public class TableroStratego extends JFrame {
             int f=getRandom(0,1);
             int c=getRandom(0,9);
             if(botones[f][c].character == null) {
-                botones[f][c].setText("????");
+                botones[f][c].setIcon(desconocido);
                 botones[f][c].SetCharacter(bombaV);
                 botones[f][c].habilitado=false;
                 pb++;
@@ -507,7 +527,7 @@ public class TableroStratego extends JFrame {
                 if(botones[f][c].character == null) {
                     botones[f][c].habilitado=false;
 //                  botones[f][c].setText(villanos[posicion_villano].Nombre+"("+String.valueOf(villanos[posicion_villano].Nivel)+" )");
-                    botones[f][c].setText("????");
+                    botones[f][c].setIcon(desconocido);
                     botones[f][c].SetCharacter(villanos[posicion_villano]);
                     botones[f][c].habilitado=false;
                     villano_actual--;
@@ -518,6 +538,8 @@ public class TableroStratego extends JFrame {
     }
     
     private void cambioTurno(){
+                ImageIcon desconocido = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/d0016110e6a873f41cc9b232ddf9fdb2bccd5c7a/src/Imagenes_rebeca/desconocido.png");
+        //botones[0][colTV].setIcon(desconocido);
         if (turnoPara=="Heroe"){
             turnoPara="Villano";
         }else{
@@ -531,8 +553,8 @@ public class TableroStratego extends JFrame {
                         botones[f][c].setText(botones[f][c].character.Nombre+"("+String.valueOf(botones[f][c].character.Nivel)+")");
                         botones[f][c].habilitado=true;
                     }else{
-                        
-                        botones[f][c].setText("????");
+                        botones[f][c].setIcon(desconocido);
+
                         botones[f][c].habilitado=false;
                     }
                 }
