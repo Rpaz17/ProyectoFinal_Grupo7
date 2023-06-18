@@ -8,6 +8,7 @@ import login.*;
 import proyecto.*;
 import java.util.Date;
 import proyecto.info_termina_partida;
+import proyecto.menu_principal;
         
 public class TableroStratego extends JFrame {
     private Cuadro[][] botones = new Cuadro[10][10];
@@ -280,38 +281,47 @@ public class TableroStratego extends JFrame {
                                         && !(botonPresionado.character.Nombre.equals("Nova Blast") && botonInicio.character.Tipo.equals("Heroe"))){ 
                             botonInicio.setBorder(BorderFactory.createEmptyBorder());
                             if ((botonInicio.character.Nivel==10 && botonPresionado.character.Nivel==1)){
+                                 JOptionPane.showMessageDialog(null, botonPresionado.character.Nombre+" con Rango"+botonPresionado.character.Nivel+" venció a una"+botonInicio.character.Nombre+" con Rango "+botonInicio.character.Nivel+" !");
                                 botonInicio.character=null;
                                 botonInicio.setText(" ");
                             } else if((botonInicio.character.Nivel==1 && botonPresionado.character.Nivel==10)){
+                                  JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" con Rango"+botonInicio.character.Nivel+" venció a una"+botonPresionado.character.Nombre+" con Rango "+botonPresionado.character.Nivel+" !");
                                 botonPresionado.character=null;
                                 botonPresionado.setText(" ");
                             }else if((botonInicio.character.Nivel==3 && botonPresionado.character.Nivel==11)){
+                                JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" con Rango"+botonInicio.character.Nivel+" venció a una"+botonPresionado.character.Nombre+"!");
                                 botonPresionado.character=null;
                                 botonPresionado.setText(" ");
-                            }else if((botonInicio.character.Nivel==11 && botonPresionado.character.Nivel==3)){
-                                 botonInicio.character=null;
-                                 botonInicio.setText(" ");
                             } else if ((botonPresionado.character.Tipo.equals("tierraV"))){ 
                                 botonPresionado.character=botonInicio.character;
+                                 Ganador();
                                 botonInicio.character=null;
                                 botonInicio.setText("");
-                                Ganador();
                                 ganadorHeroe=true;
                                 ganadorVillano=false;
                             }else if(botonPresionado.character.Tipo.equals("tierraH")){
-                                
+                                Ganador();
+                                botonPresionado.character=botonInicio.character;
+                                botonInicio.character=null;
+                                botonInicio.setText("");
+                                ganadorVillano=true;
+                                ganadorHeroe=false;
                             }else {
                                 if(botonInicio.character.Nivel>botonPresionado.character.Nivel){
-                                    botonPresionado.character=null;
-                                    botonPresionado.setText(" ");
+                                    JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" de Rango "+botonInicio.character.Nivel+" VS "+botonPresionado.character.Nombre+" de Rango "+botonPresionado.character.Nivel+"\n\n"+botonPresionado.character.Nombre+" fue derrotado por "+botonInicio.character.Nombre);
+                                    botonPresionado.character=botonInicio.character;
+                                    botonInicio.character=null;
+                                    botonInicio.setText("");
                                     //Falta mover la pieza que se elimino al panel de a lado y llevar contador
                                     // Fa;ta descubrir pieza ganadora
                                 } else if(botonInicio.character.Nivel<botonPresionado.character.Nivel){
-                                  botonInicio.setText(" ");
+                                   JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" de Rango "+botonInicio.character.Nivel+" VS "+botonPresionado.character.Nombre+" de Rango "+botonPresionado.character.Nivel+"\n\n"+botonInicio.character.Nombre+" fue derrotado por "+botonPresionado.character.Nombre);
+                                   botonInicio.setText(" ");
                                   botonInicio.character=null;
                                 }else if (botonInicio.character.Nivel==botonPresionado.character.Nivel){
+                                    JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" de Rango "+botonInicio.character.Nivel+" VS "+botonPresionado.character.Nombre+" de Rango "+botonPresionado.character.Nivel+"\n "+"\nAmbos personajes fueron eliminados.");
                                       botonPresionado.character=null;
-                                      botonPresionado.setText(" ");
+                                      botonPresionado.setText("");
                                       botonInicio.character=null;
                                       botonInicio.setText(" ");
                                 }//comprobar los niveles y eliminar fichas
@@ -522,18 +532,32 @@ public class TableroStratego extends JFrame {
         }
     }
     public boolean Ganador(){
-        Date dia = new Date();
-        String jugador1 = persona.getNombreUser();//nombre del jugador
+        menu_principal regresar=new menu_principal(ventana,persona,configuracion);
+//        String jugador1 = persona.getNombreUser(); //nombre del jugador
 //        String personajesUsados1=jugador.getJugador2(); // heroes o villanos
 //       String personajesUsados2= jugador.getJugador1();
-        info_termina_partida mostrargan = new info_termina_partida(ventana,persona,configuracion);
         if ( ganadorHeroe==true && ganadorVillano==false){
-            JOptionPane.showMessageDialog(rootPane,"FElLICIDADES HEROES LE HAN GANADO A LOS VILLANOS SALVANDO LA TIERRA", "FIN DE LA PARTIDA", HEIGHT);
-        }else if (ganadorVillano=true && ganadorHeroe==false){
-            JOptionPane.showMessageDialog(rootPane, "FELICIDADES VILLANOS LE HAN GANADO A LOS HEROES CAPTURANDO LA TIERRA!", "FIN DE LA PARTIDA", HEIGHT);
-        }else if( ganadorVillano!=true && ganadorHeroe!=true){
-            JOptionPane.showMessageDialog(rootPane, "QUEDARON EN EMPATE!", "FIN DE LA PARTIDA", HEIGHT);
+            JOptionPane.showMessageDialog(null,"FElLICIDADES HEROES LE HAN GANADO A LOS VILLANOS SALVANDO LA TIERRA", "FIN DE LA PARTIDA", HEIGHT);
+            regresar.setVisible(true);
+            this.setVisible(false);
+        }else if(ganadorHeroe==true && villanos.length==0){
+            JOptionPane.showMessageDialog(null,"FElLICIDADES HEROES LE HAN GANADO A LOS VILLANOS YA QUE LOS VILLANOS SE HAN QUEDADO SIN MOVIMIENTOS", "FIN DE LA PARTIDA", HEIGHT);
+            regresar.setVisible(true);
+            this.setVisible(false);
+        } else if (ganadorVillano==true && ganadorHeroe==false){
+            JOptionPane.showMessageDialog(null, "FELICIDADES VILLANOS LE HAN GANADO A LOS HEROES CAPTURANDO LA TIERRA!", "FIN DE LA PARTIDA", HEIGHT);
+            regresar.setVisible(true);
+            this.setVisible(false);
+        }else if(ganadorVillano==true && heroes.length==0){
+             JOptionPane.showMessageDialog(null,"FElLICIDADES VILLANOS LE HAN GANADO A LOS HEROES YA QUE LOS HEROES SE HAN QUEDADO SIN MOVIMIENTOS", "FIN DE LA PARTIDA", HEIGHT);
+            regresar.setVisible(true);
+            this.setVisible(false);
+        }else if( ganadorVillano==false && ganadorHeroe==false && villanos.length==0 && heroes.length==0){
+            JOptionPane.showMessageDialog(null, "QUEDARON EN EMPATE!", "FIN DE LA PARTIDA", HEIGHT);
+             regresar.setVisible(true);
+            this.setVisible(false);
         }
+         this.setVisible(false);
         return false;
     }
     private int getRandom(int min, int max) {
