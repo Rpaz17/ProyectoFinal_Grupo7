@@ -18,6 +18,7 @@ public class MiPerfil extends javax.swing.JFrame {
         this.ventana = ventana;
         this.persona = persona;
         this.configuracion=configuracion;
+        partidas.setListData(persona.fechas);
         user.setText(persona.getNombreUser());
         ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_MiPerfil.png");
         fondo_miperfil.setIcon(icono);
@@ -51,6 +52,8 @@ public class MiPerfil extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         Eliminar = new javax.swing.JButton();
         user = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        partidas = new javax.swing.JList<>();
         jPanel8 = new javax.swing.JPanel();
         fondo_miperfil = new javax.swing.JLabel();
 
@@ -158,6 +161,13 @@ public class MiPerfil extends javax.swing.JFrame {
         user.setText("USUARIO");
         user.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        partidas.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "si", "no", "no se", "tal vez", "asaber" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(partidas);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -176,6 +186,11 @@ public class MiPerfil extends javax.swing.JFrame {
                         .addGap(113, 113, 113)
                         .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(422, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 927, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(71, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,6 +204,11 @@ public class MiPerfil extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(162, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(95, Short.MAX_VALUE)))
         );
 
         jPanel8.setBackground(new java.awt.Color(0, 0, 0));
@@ -242,6 +262,8 @@ public class MiPerfil extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> partidas;
     private javax.swing.JLabel user;
     // End of variables declaration//GEN-END:variables
 }

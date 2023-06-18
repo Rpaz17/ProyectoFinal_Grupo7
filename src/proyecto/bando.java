@@ -164,7 +164,7 @@ public class bando extends javax.swing.JFrame {
     private void btn_heroesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_heroesMouseClicked
        
         TableroStratego tablero=new TableroStratego(ventana,persona,configuracion);
-       jugador1="Heroes";
+        jugador1="Heroes";
         jugador2="Villanos";
         tablero.setVisible(true);
         this.setVisible(false);
