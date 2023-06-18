@@ -521,7 +521,7 @@ public class TableroStratego extends JFrame {
                 c =getRandom(0,9);
                 if(botones[f][c].character == null) {
                     botones[f][c].habilitado=false;
-//                  botones[f][c].setText(villanos[posicion_villano].Nombre+"("+String.valueOf(villanos[posicion_villano].Nivel)+" )");
+ //                   botones[f][c].setText(villanos[posicion_villano].Nombre+"("+String.valueOf(villanos[posicion_villano].Nivel)+" )");
                     botones[f][c].setIcon(desconocido);
                     botones[f][c].SetCharacter(villanos[posicion_villano]);
                     botones[f][c].habilitado=false;
