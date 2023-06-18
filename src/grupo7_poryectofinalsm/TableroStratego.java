@@ -533,8 +533,7 @@ public class TableroStratego extends JFrame {
     }
     
     private void cambioTurno(){
-         ImageIcon desconocido = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/d0016110e6a873f41cc9b232ddf9fdb2bccd5c7a/src/Imagenes_rebeca/desconocido.png");
-        //botones[0][colTV].setIcon(desconocido);
+                ImageIcon desconocido = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/d0016110e6a873f41cc9b232ddf9fdb2bccd5c7a/src/Imagenes_rebeca/desconocido.png");
         if (turnoPara=="Heroe"){
             turnoPara="Villano";
         }else{
@@ -543,6 +542,7 @@ public class TableroStratego extends JFrame {
         for(int f=0; f<10;f++) {
             for(int c=0;c<10;c++){
                 if(botones[f][c].character!=null){
+            botones[f][c].setIcon(desconocido);
                     if(botones[f][c].character.Tipo==turnoPara || (turnoPara.equals("Villano") && botones[f][c].character.Nombre.equals("Pumpkin Bomb")) || (turnoPara.equals("Villano") && botones[f][c].character.Nombre.equals("Tierra Villanos"))
                             || (turnoPara.equals("Heroe") && botones[f][c].character.Nombre.equals("Nova Blast")) || (turnoPara.equals("Heroe") && botones[f][c].character.Nombre.equals("Tierra Heroes"))){
                         botones[f][c].setText(botones[f][c].character.Nombre+"("+String.valueOf(botones[f][c].character.Nivel)+")");
