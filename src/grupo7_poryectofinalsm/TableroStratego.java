@@ -208,6 +208,7 @@ public class TableroStratego extends JFrame {
     }
      
     private void botonesMouseClicked(MouseEvent evt) {
+        menu_principal regresar=new menu_principal(ventana,persona,configuracion);
          Object source = evt.getSource();
         Cuadro botonPresionado = ((Cuadro) source);
         int f=botonPresionado.fila;
@@ -276,55 +277,59 @@ public class TableroStratego extends JFrame {
                                 }
                             }
                          }// cierre if verificacion de misma fila y misma columna
-                        if(botonPresionado.character==null && mover) {
+                        if(botonPresionado.character==null && mover) { //EN CASO DE QUE LA SEGUNDA CASILLA SEA NULA
                             botonInicio.setBorder(BorderFactory.createEmptyBorder());
-                            botonPresionado.SetCharacter( botonInicio.character);
-                            botonPresionado.setText(botonInicio.getText());
-                            botonInicio.setText("");
-                            botonInicio.character=null;
+                            botonPresionado.SetCharacter( botonInicio.character);// el boton presionado toma la informacion del personaje del primero boton seleccionado
+                            botonPresionado.setText(botonInicio.getText());// el boton presionado toma la informacion del primer boton seleccionado
+                            botonInicio.setText("");// el texto del primero boton queda en blanco
+                            botonInicio.character=null;// la informacion del persoanje de este boton qeuda en nulo
                             botonInicio=null;
                             cambioTurno();
     //                    botonInicio.setImage();
     //                    botonFinal.setImage();
-                       } else if(botonInicio.character.Tipo.equals(botonPresionado.character.Tipo)) { 
-                            botonInicio.setBorder(BorderFactory.createEmptyBorder());
-                            botonPresionado.setBorder(BorderFactory.createLineBorder(Color.RED, 5, true));
-                            botonInicio = botonPresionado;
+                       } else if(botonInicio.character.Tipo.equals(botonPresionado.character.Tipo)) { // EN CASO DE QUE SEAN DEL MISMO BANDO
+                            botonInicio.setBorder(BorderFactory.createEmptyBorder());// el primero boton se deselecciona
+                            botonPresionado.setBorder(BorderFactory.createLineBorder(Color.RED, 5, true));// se le pone el borde al boton para que se sepa que es lo que se esta seleccionando, el segundo boton se selecciona
+                            botonInicio = botonPresionado; 
                             botonInicio.setText(text);
                         } else if (botonPresionado.character !=null && mover 
                                         && !(botonPresionado.character.Nombre.equals("Pumpkin Bomb") && botonInicio.character.Tipo.equals("Villano"))
-                                        && !(botonPresionado.character.Nombre.equals("Nova Blast") && botonInicio.character.Tipo.equals("Heroe"))){ 
-                            botonInicio.setBorder(BorderFactory.createEmptyBorder());
-                            if ((botonInicio.character.Nivel==10 && botonPresionado.character.Nivel==1)){
-                                 JOptionPane.showMessageDialog(null, botonPresionado.character.Nombre+" con Rango"+botonPresionado.character.Nivel+" venció a una"+botonInicio.character.Nombre+" con Rango "+botonInicio.character.Nivel+" !");
+                                        && !(botonPresionado.character.Nombre.equals("Nova Blast") && botonInicio.character.Tipo.equals("Heroe"))){ // EN CASO DE QUE HAYA UN PERSONAJE DEL OTRO BANDO 
+                            botonInicio.setBorder(BorderFactory.createEmptyBorder());// se deseleccion el primer boton
+                            if ((botonInicio.character.Nivel==10 && botonPresionado.character.Nivel==1)){ // a continuacion se chequean las excepciones dadas en el formato
+                                 JOptionPane.showMessageDialog(null, botonPresionado.character.Nombre+" con Rango"+botonPresionado.character.Nivel+" venció una "+botonInicio.character.Nombre+" con Rango "+botonInicio.character.Nivel+" !");
                                 botonInicio.character=null;
-                                botonInicio.setText(" ");
+                                botonInicio.setText(" "); // texto se vuelve nulo al igual que info
                             } else if((botonInicio.character.Nivel==1 && botonPresionado.character.Nivel==10)){
-                                  JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" con Rango"+botonInicio.character.Nivel+" venció a una"+botonPresionado.character.Nombre+" con Rango "+botonPresionado.character.Nivel+" !");
+                                  JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" con Rango"+botonInicio.character.Nivel+" venció una "+botonPresionado.character.Nombre+" con Rango "+botonPresionado.character.Nivel+" !");
                                 botonPresionado.character=null;
                                 botonPresionado.setText(" ");
-                            }else if((botonInicio.character.Nivel==3 && botonPresionado.character.Nivel==11)){
-                                JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" con Rango"+botonInicio.character.Nivel+" venció a una"+botonPresionado.character.Nombre+"!");
+                            }else if((botonInicio.character.Nivel==3 && botonPresionado.character.Nivel==11)){ // las cartas nivel 11 son las bombas
+                                JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" con Rango"+botonInicio.character.Nivel+" venció una "+botonPresionado.character.Nombre+"!");
                                 botonPresionado.character=null;
                                 botonPresionado.setText(" ");
-                            } else if ((botonPresionado.character.Tipo.equals("tierraV"))){ 
-                                botonPresionado.character=botonInicio.character;
-                                 Ganador();
-                                botonInicio.character=null;
-                                botonInicio.setText("");
-                                ganadorHeroe=true;
-                                ganadorVillano=false;
-                            }else if(botonPresionado.character.Tipo.equals("tierraH")){
-                                Ganador();
+                            } else if ((botonPresionado.character.Nombre.equals("Tierra Villanos"))){  // cuando la tierra es salvada
+                                int fin = JOptionPane.showConfirmDialog(null, "FELICIDADES HEROES SALVARON LA TIERRA Y DERROTARON A LOS VILLANOS!", "FIN DE LA PARTIDA",JOptionPane.OK_OPTION);
+                               if(fin==JOptionPane.OK_OPTION){
                                 botonPresionado.character=botonInicio.character;
                                 botonInicio.character=null;
+                                botonInicio.setText(""); // la info queda nula
+                                regresar.setVisible(true); // regresa al menu principal
+                                this.setVisible(false);
+                               }
+                            }else if( (botonPresionado.character.Nombre.equals("Tierra Heroes"))){ // cuando la tierra es capturada
+                                 int fin = JOptionPane.showConfirmDialog(null, "FELICIDADES VILLANOS CAPTURARON LA TIERRA Y DERROTARON A LOS HEROES!", "FIN DE LA PARTIDA",JOptionPane.OK_OPTION);
+                               if(fin==JOptionPane.OK_OPTION){
+                                botonPresionado.character=botonInicio.character;
+                                botonInicio.character=null;
                                 botonInicio.setText("");
-                                ganadorVillano=true;
-                                ganadorHeroe=false;
-                            }else {
+                                regresar.setVisible(true); // regresa al menu principal
+                                this.setVisible(false);
+                               }
+                            }else { // PARA TODOS LOS MOVIMIENTOS DEL TABLERO EN CASO DE QUE HAYA UN PERSONAJE EN EL SEGUNDO BOTON SELECCIONADO
                                 if(botonInicio.character.Nivel>botonPresionado.character.Nivel){
                                     JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" de Rango "+botonInicio.character.Nivel+" VS "+botonPresionado.character.Nombre+" de Rango "+botonPresionado.character.Nivel+"\n\n"+botonPresionado.character.Nombre+" fue derrotado por "+botonInicio.character.Nombre);
-                                    botonPresionado.character=botonInicio.character;
+                                    botonPresionado.character=botonInicio.character; // La info del boton se mueve hacia la casilla del contrario
                                     botonInicio.character=null;
                                     botonInicio.setText("");
                                     //Falta mover la pieza que se elimino al panel de a lado y llevar contador
@@ -359,7 +364,7 @@ public class TableroStratego extends JFrame {
         return new ImageIcon(resizedImage);
     }
     
-    private void initPersonajes() {
+    private void initPersonajes() { // INICIALIZAR PERSONAJES
         heroes[0] = new Personaje("Heroe", 10, "Mr Fantastic", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/10.mr_fantastic.png");
         heroes[1] = new Personaje("Heroe", 9, "Captain America", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/9.cap_america.png");
         heroes[2] = new Personaje("Heroe", 8, "Professor X", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/8.professor_x.png");
@@ -436,6 +441,7 @@ public class TableroStratego extends JFrame {
     }
     
     private void setPersonajes(){
+        //ubicando tierra y bombas de heroes
 
         int colTH = getRandom(1,8);
         botones[9][colTH].setText("Tierra H");
@@ -548,6 +554,7 @@ public class TableroStratego extends JFrame {
                         botones[f][c].habilitado=true;
                     }else{
                         botones[f][c].setIcon(desconocido);
+
                         botones[f][c].habilitado=false;
                     }
                 }
@@ -555,29 +562,28 @@ public class TableroStratego extends JFrame {
         }
     }
     public boolean Ganador(){
-        menu_principal regresar=new menu_principal(ventana,persona,configuracion);
 //        String jugador1 = persona.getNombreUser(); //nombre del jugador
 //        String personajesUsados1=jugador.getJugador2(); // heroes o villanos
 //       String personajesUsados2= jugador.getJugador1();
         if ( ganadorHeroe==true && ganadorVillano==false){
             JOptionPane.showMessageDialog(null,"FElLICIDADES HEROES LE HAN GANADO A LOS VILLANOS SALVANDO LA TIERRA", "FIN DE LA PARTIDA", HEIGHT);
-            regresar.setVisible(true);
+
             this.setVisible(false);
         }else if(ganadorHeroe==true && villanos.length==0){
             JOptionPane.showMessageDialog(null,"FElLICIDADES HEROES LE HAN GANADO A LOS VILLANOS YA QUE LOS VILLANOS SE HAN QUEDADO SIN MOVIMIENTOS", "FIN DE LA PARTIDA", HEIGHT);
-            regresar.setVisible(true);
+
             this.setVisible(false);
         } else if (ganadorVillano==true && ganadorHeroe==false){
             JOptionPane.showMessageDialog(null, "FELICIDADES VILLANOS LE HAN GANADO A LOS HEROES CAPTURANDO LA TIERRA!", "FIN DE LA PARTIDA", HEIGHT);
-            regresar.setVisible(true);
+
             this.setVisible(false);
         }else if(ganadorVillano==true && heroes.length==0){
              JOptionPane.showMessageDialog(null,"FElLICIDADES VILLANOS LE HAN GANADO A LOS HEROES YA QUE LOS HEROES SE HAN QUEDADO SIN MOVIMIENTOS", "FIN DE LA PARTIDA", HEIGHT);
-            regresar.setVisible(true);
+
             this.setVisible(false);
         }else if( ganadorVillano==false && ganadorHeroe==false && villanos.length==0 && heroes.length==0){
             JOptionPane.showMessageDialog(null, "QUEDARON EN EMPATE!", "FIN DE LA PARTIDA", HEIGHT);
-             regresar.setVisible(true);
+
             this.setVisible(false);
         }
          this.setVisible(false);
