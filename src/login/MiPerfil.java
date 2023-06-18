@@ -21,8 +21,8 @@ public class MiPerfil extends javax.swing.JFrame {
         this.configuracion=configuracion;
         partidas.setListData(persona.fechas);
         user.setText(persona.getNombreUser());
-        //ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_MiPerfil.png");
-       // fondo_miperfil.setIcon(icono);
+       // ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_MiPerfil.png");
+       //fondo_miperfil.setIcon(icono);
         ImageIcon btn = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/proyecto/btn_regreso/btn_menuPrincipal.png");
         fondo_menu.setIcon(btn);
 
@@ -44,6 +44,8 @@ public class MiPerfil extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        fondo_miperfil = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         Cambiar = new javax.swing.JButton();
@@ -55,14 +57,15 @@ public class MiPerfil extends javax.swing.JFrame {
         user = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         partidas = new javax.swing.JList<>();
-        jPanel8 = new javax.swing.JPanel();
-        fondo_miperfil = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setOpaque(false);
+
+        jPanel8.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel8.setOpaque(false);
+        jPanel8.add(fondo_miperfil);
 
         jPanel3.setOpaque(false);
         jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
@@ -189,6 +192,8 @@ public class MiPerfil extends javax.swing.JFrame {
                         .addGap(219, 219, 219)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(314, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 1420, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,24 +213,19 @@ public class MiPerfil extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE))
         );
-
-        jPanel8.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel8.add(fondo_miperfil);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
