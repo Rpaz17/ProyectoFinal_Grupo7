@@ -40,10 +40,6 @@ public class TableroStratego extends JFrame {
         this.configuracion=configuracion;
         initPersonajes();
         setPersonajes();
-       // ImageIcon Hoculto = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/afbb93404a004705af80255aef50734f90ccee25/src/Imagenes_rebeca/bombaH/Hoculto.png");
-//   botones[0][colTV].setIcon(Hoculto);
-       // ImageIcon Voculto = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/afbb93404a004705af80255aef50734f90ccee25/src/Imagenes_rebeca/bombaV/Voculto.png");
-//   botones[0][colTV-1].setIcon(Voculto);
     }
     private ImageIcon createImageIconFromURL(String imageUrl) {
         try {
@@ -442,7 +438,6 @@ public class TableroStratego extends JFrame {
     
     private void setPersonajes(){
         //ubicando tierra y bombas de heroes
-
         int colTH = getRandom(1,8);
         botones[9][colTH].setText("Tierra H");
         botones[9][colTH].SetCharacter(tierraH);
@@ -490,7 +485,7 @@ public class TableroStratego extends JFrame {
       //  ImageIcon Voculto = createImageIconFromURL("");
        //botones[0][colTV-1].setIcon(Voculto);
        
-            botones[0][colTV].setIcon(desconocido);
+        botones[0][colTV].setIcon(desconocido);
         botones[0][colTV].SetCharacter(tierraV);
         botones[0][colTV].habilitado=false;
         botones[0][colTV-1].setIcon(desconocido);
@@ -538,7 +533,7 @@ public class TableroStratego extends JFrame {
     }
     
     private void cambioTurno(){
-                ImageIcon desconocido = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/d0016110e6a873f41cc9b232ddf9fdb2bccd5c7a/src/Imagenes_rebeca/desconocido.png");
+         ImageIcon desconocido = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/d0016110e6a873f41cc9b232ddf9fdb2bccd5c7a/src/Imagenes_rebeca/desconocido.png");
         //botones[0][colTV].setIcon(desconocido);
         if (turnoPara=="Heroe"){
             turnoPara="Villano";
@@ -554,7 +549,6 @@ public class TableroStratego extends JFrame {
                         botones[f][c].habilitado=true;
                     }else{
                         botones[f][c].setIcon(desconocido);
-
                         botones[f][c].habilitado=false;
                     }
                 }
