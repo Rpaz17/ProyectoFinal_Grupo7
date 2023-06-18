@@ -79,9 +79,6 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
           <SubComponents>
             <Component class="javax.swing.JButton" name="btn_tutorial">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="TUTORIAL"/>
-              </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_tutorialMouseClicked"/>
               </Events>
@@ -107,9 +104,6 @@
             <Component class="javax.swing.JSeparator" name="jSeparator1">
             </Component>
             <Component class="javax.swing.JButton" name="btn_clasico">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="CLASICO"/>
-              </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_clasicoMouseClicked"/>
               </Events>
