@@ -1,11 +1,11 @@
 package proyecto;
+import grupo7_poryectofinalsm.TableroStratego;
 import login.*;
 import login.Persona;
 import java.awt.Image;
 import java.io.IOException;
 import java.net.URL;
 import javax.swing.ImageIcon;
-
 
 public class info_termina_partida extends javax.swing.JFrame {
 
@@ -61,7 +61,6 @@ public class info_termina_partida extends javax.swing.JFrame {
         });
         jPanel2.add(btn_menu);
 
-        jLabel1.setText("jLabel1");
         jLabel1.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel1AncestorAdded(evt);
@@ -125,7 +124,8 @@ public class info_termina_partida extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_menuMouseClicked
 
     private void jLabel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel1AncestorAdded
-     
+        TableroStratego ganador = new TableroStratego(ventana,persona,configuracion);
+        ganador.Ganador();
     }//GEN-LAST:event_jLabel1AncestorAdded
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

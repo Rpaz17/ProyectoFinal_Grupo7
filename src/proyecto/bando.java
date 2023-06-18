@@ -156,25 +156,29 @@ public class bando extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_regresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_regresarMouseClicked
-        oponente ventana1=new oponente(ventana,persona,configuracion);
+       oponente ventana1=new oponente(ventana,persona,configuracion);
         ventana1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_regresarMouseClicked
 
     private void btn_heroesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_heroesMouseClicked
+       
         TableroStratego tablero=new TableroStratego(ventana,persona,configuracion);
+       jugador1="Heroes";
+        jugador2="Villanos";
         tablero.setVisible(true);
         this.setVisible(false);
-        jugador1="Villanos";
-        jugador2="Heroes";
+
     }//GEN-LAST:event_btn_heroesMouseClicked
 
     private void btn_villanosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_villanosMouseClicked
+        
         TableroStratego tablero=new TableroStratego(ventana,persona,configuracion);
+        jugador1="Villanos";
+        jugador2="Heroes";
         tablero.setVisible(true);
         this.setVisible(false);
-        jugador1="Heroes";
-        jugador2="Villanos";
+
     }//GEN-LAST:event_btn_villanosMouseClicked
 
     public String getJugador1(){

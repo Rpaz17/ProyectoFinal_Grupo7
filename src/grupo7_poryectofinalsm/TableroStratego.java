@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import login.*;
 import proyecto.*;
 import java.util.Date;
+import proyecto.info_termina_partida;
         
 public class TableroStratego extends JFrame {
     private Cuadro[][] botones = new Cuadro[10][10];
@@ -289,8 +290,7 @@ public class TableroStratego extends JFrame {
                             }else if((botonInicio.character.Nivel==11 && botonPresionado.character.Nivel==3)){
                                  botonInicio.character=null;
                                  botonInicio.setText(" ");
-                            } else if ((botonInicio.character.Tipo.equals("Heroe") && botonPresionado.character.Tipo.equals("tierraV")) 
-                                    && (botonInicio.character.Nivel>botonPresionado.character.Nivel)){
+                            } else if ((botonInicio.character.Tipo.equals("Heroe") && botonPresionado.character.Nombre.equals("Tierra Villanos"))){ 
                                 botonPresionado.character=botonInicio.character;
                                 botonInicio.character=null;
                                 botonInicio.setText("");
@@ -319,18 +319,7 @@ public class TableroStratego extends JFrame {
                 }// cierre if si boton inicio es distinto a null    
         }// cierre if si boton esta disponible
     }
-//    private void botonesActionPerformed(java.awt.event.ActionEvent evt) {
-//        Object source = evt.getSource();
-//        String Name = ((JButton) source).getName();
-//        int bWidth =((JButton) source).getWidth();
-//        int bHeight = ((JButton) source).getHeight();
-//        int offset = ((JButton) source).getInsets().left;
-//        if(Name.equals("0")) {
-//            ImageIcon icon = new ImageIcon(getClass().getResource("/Imagenes_rebeca/10.mr_fantastic.png"));            
-//            Icon iconr = resizeIcon(icon , bWidth - offset , bHeight - offset);
-//            botones[0][0].setIcon(iconr); 
-//        }
-//    }
+
     private void botonesPropertyChange(java.beans.PropertyChangeEvent evt) {
 // TODO add your handling code here:
     }
@@ -531,15 +520,16 @@ public class TableroStratego extends JFrame {
     public void Ganador(){
         Date dia = new Date();
         String jugador1 = persona.getNombreUser();//nombre del jugador
-        String jugador2=jugador.getJugador2(); // heroes o villanos
-       String personajesUsados1= jugador.getJugador1();
+//        String personajesUsados1=jugador.getJugador2(); // heroes o villanos
+//       String personajesUsados2= jugador.getJugador1();
         String ganador="";
-        if ( personajesUsados1=="Heroes" ){
+        info_termina_partida mostrargan = new info_termina_partida(ventana,persona,configuracion);
+        if ( character.equals("Heroes") ){
             ganador=jugador1;
-            System.out.println("FELICIDADES "+ganador+" has ganado utilizando "+personajesUsados1+"SALVANDO la TIERRA!");
-        }else if (personajesUsados1=="Villanos"){
+            JOptionPane.showMessageDialog(rootPane,"FElLICIDADES HEROES LE HAN GANADO A LOS VILLANOS SALVANDO LA TIERRA", "FIN DE LA PARTIDA", HEIGHT);
+        }else if (personajesUsados2.equals("Villanos")){
             ganador=jugador1;
-            System.out.println("FELICIDADES "+ganador+" has ganado utilizando "+personajesUsados1+" CAPTURANDO la TIERRA");
+            System.out.println("FELICIDADES "+ganador+" has ganado utilizando "+personajesUsados2+" CAPTURANDO la TIERRA");
         }else if( jugador1 == persona.getNombreUser() && villanos.length==0){
           ganador=jugador1;
             System.out.println("FELICIDADES "+ganador+" usando HEROES ha ganado ya que los VILLANOS se han retirado del juego!");
