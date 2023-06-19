@@ -21,6 +21,7 @@ public class partida_nueva extends javax.swing.JFrame {
         this.ventana=ventana;
         this.configuracion=configuracion;
         this.controladorLogin = ventana.getControlador();
+        actualizarActivos();
 
         ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_vacio.png");
         fondoPartida.setIcon(icono);
@@ -44,11 +45,16 @@ public class partida_nueva extends javax.swing.JFrame {
         String usuario = persona.getNombreUser();
 
         long numeroPersonas = Arrays.stream(arregloPersonas)
-                                .filter(p -> p != null && !p.getNombreUser().equals(" "))
-                                .count();
+                            .filter(p -> p != null && !p.getNombreUser().trim().isEmpty() && !p.getNombreUser().equals("..........."))
+                            .count();
 
         return (int) numeroPersonas ;
     }
+        private void actualizarActivos() {
+        int numeroUsuariosActivos = obtenerNumeroUsuariosActivos();
+        activos.setText(String.valueOf(numeroUsuariosActivos));
+    }
+  
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -59,6 +65,7 @@ public class partida_nueva extends javax.swing.JFrame {
         btn_partida = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btn_menu = new javax.swing.JButton();
+        activos = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         fondoPartida = new javax.swing.JLabel();
 
@@ -92,16 +99,23 @@ public class partida_nueva extends javax.swing.JFrame {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1175, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(activos, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(1175, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(233, 233, 233)
+                .addGap(43, 43, 43)
+                .addComponent(activos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(120, 120, 120)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 508, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -140,20 +154,22 @@ public class partida_nueva extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_menuMouseClicked
 
     private void btn_partidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_partidaMouseClicked
-    int numeroUsuariosActivos = obtenerNumeroUsuariosActivos();
+     int numeroUsuariosActivos = obtenerNumeroUsuariosActivos();
 
-    if (numeroUsuariosActivos > 1) {
-        oponente ventana2 = new oponente(ventana, persona, configuracion);
-        ventana2.setVisible(true);
-        this.setVisible(false);
-    } else {
-        no_disponible no= new no_disponible(ventana, persona, configuracion);
-        no.setVisible(true);
-        this.setVisible(false);
-    }
+        if (numeroUsuariosActivos > 1) {
+            oponente ventana2 = new oponente(ventana, persona, configuracion);
+            ventana2.setVisible(true);
+            this.setVisible(false);
+        } else {
+            no_disponible no = new no_disponible(ventana, persona, configuracion);
+            no.setVisible(true);
+            this.setVisible(false);
+        }
+    
     }//GEN-LAST:event_btn_partidaMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel activos;
     private javax.swing.JButton btn_menu;
     private javax.swing.JButton btn_partida;
     private javax.swing.JLabel fondoPartida;
