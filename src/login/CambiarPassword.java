@@ -55,7 +55,7 @@ public class CambiarPassword extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));

@@ -45,7 +45,7 @@ public class no_disponible extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         fondoNo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setOpaque(false);

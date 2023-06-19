@@ -51,7 +51,7 @@ public class VentanaRegistraPersona extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         btnVolver = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));

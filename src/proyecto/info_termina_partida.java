@@ -42,11 +42,11 @@ public class info_termina_partida extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btn_menu = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        infoFIN = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         fondoInfoFin = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
@@ -61,9 +61,9 @@ public class info_termina_partida extends javax.swing.JFrame {
         });
         jPanel2.add(btn_menu);
 
-        jLabel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+        infoFIN.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jLabel1AncestorAdded(evt);
+                infoFINAncestorAdded(evt);
             }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -82,14 +82,14 @@ public class info_termina_partida extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(336, 336, 336)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(infoFIN, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(350, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(125, 125, 125)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(infoFIN, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -123,15 +123,15 @@ public class info_termina_partida extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btn_menuMouseClicked
 
-    private void jLabel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel1AncestorAdded
+    private void infoFINAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_infoFINAncestorAdded
         TableroStratego ganador = new TableroStratego(ventana,persona,configuracion);
         ganador.Ganador();
-    }//GEN-LAST:event_jLabel1AncestorAdded
+    }//GEN-LAST:event_infoFINAncestorAdded
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_menu;
     private javax.swing.JLabel fondoInfoFin;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel infoFIN;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

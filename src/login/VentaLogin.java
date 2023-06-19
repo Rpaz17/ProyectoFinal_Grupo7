@@ -55,7 +55,7 @@ public class VentaLogin extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         txtContra = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setExtendedState(6);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
