@@ -18,6 +18,7 @@ public class TableroStratego extends JFrame {
     VentaLogin ventana;
     bando jugador;
     settings configuracion;
+    oponente oponente;
      private BufferedImage image;
      private Personaje[] heroes = new Personaje[33];
      private Personaje[] villanos = new Personaje[33];
@@ -320,7 +321,8 @@ public class TableroStratego extends JFrame {
                                 botonInicio.setIcon(null);
                             } else if ((botonPresionado.character.Nombre.equals("Tierra Villanos"))){  // cuando la tierra es salvada
                                 int fin = JOptionPane.showConfirmDialog(null, "FELICIDADES HEROES SALVARON LA TIERRA Y DERROTARON A LOS VILLANOS!", "FIN DE LA PARTIDA",JOptionPane.OK_OPTION);
-                               if(fin==JOptionPane.OK_OPTION){
+                               
+                                if(fin==JOptionPane.OK_OPTION){
                                 botonPresionado.character=botonInicio.character;
                                 botonPresionado.setIcon(botonInicio.getSelectedIcon());
                                 botonInicio.character=null;
@@ -331,7 +333,8 @@ public class TableroStratego extends JFrame {
                                }
                             }else if( (botonPresionado.character.Nombre.equals("Tierra Heroes"))){ // cuando la tierra es capturada
                                  int fin = JOptionPane.showConfirmDialog(null, "FELICIDADES VILLANOS CAPTURARON LA TIERRA Y DERROTARON A LOS HEROES!", "FIN DE LA PARTIDA",JOptionPane.OK_OPTION);
-                               if(fin==JOptionPane.OK_OPTION){
+                                String nosee=String.valueOf(persona.getFecha());
+                                 if(fin==JOptionPane.OK_OPTION){
                                 botonPresionado.character=botonInicio.character;
                                 botonPresionado.setIcon(botonInicio.getSelectedIcon());
                                 botonInicio.character=null;
@@ -1132,6 +1135,8 @@ public class TableroStratego extends JFrame {
     }
     
     public boolean Ganador(){
+          String nosee=String.valueOf(persona.getFecha());
+            persona.agregarFecha(nosee, persona.getNombreUser(), oponente.getOponente(), turnoPara);
 //        String jugador1 = persona.getNombreUser(); //nombre del jugador
 //        String personajesUsados1=jugador.getJugador2(); // heroes o villanos
 //       String personajesUsados2= jugador.getJugador1();

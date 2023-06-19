@@ -21,6 +21,7 @@ public class oponente extends javax.swing.JFrame {
     Persona persona;
     ControladorLogin controladorLogin;
     settings configuracion;
+    String oponente;
     public oponente(VentaLogin ventana, Persona persona,settings configuracion) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -28,6 +29,7 @@ public class oponente extends javax.swing.JFrame {
         this.persona = persona;
         this.configuracion=configuracion;
         this.controladorLogin = ventana.getControlador();
+        this.oponente=oponente;
         inicializarComboBox();
         ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_Oponente.png");
         fondoOponente.setIcon(icono);
@@ -172,18 +174,21 @@ public class oponente extends javax.swing.JFrame {
 
     private void btn_continuarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_continuarMouseClicked
         String texto = jLabel2.getText();
+        oponente=texto;
         if (texto.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Debe seleccionar un oponente");
         } else {
             int confirmacion = JOptionPane.showConfirmDialog(this, "¿Está seguro de continuar?", "Oponente "+texto, JOptionPane.YES_NO_OPTION);
             if (confirmacion == JOptionPane.YES_OPTION) {
-                bando ventana1 = new bando(ventana,persona,configuracion);
+                bando ventana1 = new bando(ventana,persona,configuracion,this);
                 ventana1.setVisible(true);
                 this.setVisible(false);
             }
         }
     }//GEN-LAST:event_btn_continuarMouseClicked
-
+public String getOponente(){
+    return oponente;
+}
     private void btn_regresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_regresarMouseClicked
         partida_nueva menu = new partida_nueva(ventana,persona,configuracion);
         menu.setVisible(true);
