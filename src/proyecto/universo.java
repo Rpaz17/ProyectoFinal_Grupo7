@@ -63,14 +63,14 @@ public class universo extends javax.swing.JFrame {
         String usuario = persona.getNombreUser();
 
         long numeroPersonas = Arrays.stream(arregloPersonas)
-                                .filter(p -> p != null && !p.getNombreUser().equals(" "))
-                                .count();
+                            .filter(p -> p != null && p.getNombreUser() != null && !p.getNombreUser().trim().isEmpty() && !p.getNombreUser().equals("..."))
+                            .count();
 
         return (int) numeroPersonas ;
     }
     private void actualizarActivos() {
         int numeroUsuariosActivos = obtenerNumeroUsuariosActivos();
-        activos.setText(String.valueOf(numeroUsuariosActivos));
+        activos.setText(String.valueOf(""+numeroUsuariosActivos));
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -85,8 +85,6 @@ public class universo extends javax.swing.JFrame {
         fondo_universo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel2.setOpaque(false);
 
         btn_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -112,8 +110,10 @@ public class universo extends javax.swing.JFrame {
         );
 
         historico.setText("0");
+        historico.setOpaque(true);
 
         activos.setText("0");
+        activos.setOpaque(true);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
