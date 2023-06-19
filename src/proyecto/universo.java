@@ -6,24 +6,20 @@ package proyecto;
 import grupo7_poryectofinalsm.*;
 import login.*;
 import login.Persona;
-import java.util.Arrays;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class universo extends javax.swing.JFrame {
-
-    static void setIcon(ImageIcon get) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     Persona persona;
     VentaLogin ventana;
     settings configuracion;
     ControladorLogin controladorLogin;
-    
     
     public universo(VentaLogin ventana, Persona persona,settings configuracion) {
         initComponents();
@@ -34,12 +30,12 @@ public class universo extends javax.swing.JFrame {
         this.controladorLogin = ventana.getControlador();
         actualizarHistorico();
         actualizarActivos();
-        //ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_Universo.png");
-       // fondo_universo.setIcon(icono);
-       // ImageIcon menu= createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/proyecto/btn_regreso/btn_menuPrincipal.png");
-       // btn_menu.setIcon(menu);
+        ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_Universo.png");
+        fondoUniverso.setIcon(icono);
+        ImageIcon menu= createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/proyecto/btn_regreso/btn_menuPrincipal.png");
+        btn_menu.setIcon(menu);
     }
-      private ImageIcon createImageIconFromURL(String imageUrl) {
+    private ImageIcon createImageIconFromURL(String imageUrl) {
         try {
             URL url = new URL(imageUrl);
             Image image = javax.imageio.ImageIO.read(url);
@@ -60,8 +56,7 @@ public class universo extends javax.swing.JFrame {
     private void actualizarHistorico() {
         int numeroUsuariosRegistrados = obtenerNumeroUsuariosRegistrados();
         historico.setText(""+numeroUsuariosRegistrados);
-    }      
-    private int obtenerNumeroUsuariosActivos() {
+    }      private int obtenerNumeroUsuariosActivos() {
         Persona[] arregloPersonas = controladorLogin.getArregloPersonas();
         String usuario = persona.getNombreUser();
 
@@ -84,16 +79,17 @@ public class universo extends javax.swing.JFrame {
         btn_menu = new javax.swing.JButton();
         historico = new javax.swing.JLabel();
         activos = new javax.swing.JLabel();
-        ganados_heroes = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        fondo_universo = new javax.swing.JLabel();
+        ganoH = new javax.swing.JLabel();
+        ganoV = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        fondoUniverso = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setOpaque(false);
 
-        btn_menu.setOpaque(true);
+        jPanel2.setOpaque(false);
+
         btn_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_menuMouseClicked(evt);
@@ -117,33 +113,26 @@ public class universo extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        historico.setBackground(new java.awt.Color(0, 0, 0));
         historico.setFont(new java.awt.Font("Game Of Squids", 0, 48)); // NOI18N
         historico.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         historico.setText("0");
         historico.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        historico.setOpaque(true);
 
-        activos.setBackground(new java.awt.Color(0, 0, 0));
+        activos.setBackground(new java.awt.Color(255, 255, 255));
         activos.setFont(new java.awt.Font("Game Of Squids", 0, 48)); // NOI18N
         activos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         activos.setText("0");
         activos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        activos.setOpaque(true);
 
-        ganados_heroes.setBackground(new java.awt.Color(0, 0, 0));
-        ganados_heroes.setFont(new java.awt.Font("Game Of Squids", 0, 48)); // NOI18N
-        ganados_heroes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ganados_heroes.setText("0");
-        ganados_heroes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        ganados_heroes.setOpaque(true);
+        ganoH.setFont(new java.awt.Font("Game Of Squids", 0, 48)); // NOI18N
+        ganoH.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ganoH.setText("0");
+        ganoH.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Game Of Squids", 0, 48)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("0");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel1.setOpaque(true);
+        ganoV.setFont(new java.awt.Font("Game Of Squids", 0, 48)); // NOI18N
+        ganoV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ganoV.setText("0");
+        ganoV.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -151,38 +140,38 @@ public class universo extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1231, Short.MAX_VALUE))
+                .addGap(0, 1720, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(817, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(activos, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ganoH, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(175, 175, 175)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ganados_heroes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(activos, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
-                .addGap(151, 151, 151)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(historico, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(185, 185, 185))
+                    .addComponent(historico, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                    .addComponent(ganoV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(231, 231, 231))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(257, 257, 257)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(historico, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(activos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(195, 195, 195)
+                .addGap(240, 240, 240)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ganados_heroes, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
+                    .addComponent(activos, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(historico, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(179, 179, 179)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ganoH, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ganoV, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 384, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel4.setOpaque(false);
+        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setOpaque(false);
 
-        fondo_universo.setOpaque(true);
-        jPanel4.add(fondo_universo);
+        fondoUniverso.setOpaque(true);
+        jPanel3.add(fondoUniverso);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -190,13 +179,13 @@ public class universo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -211,13 +200,13 @@ public class universo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel activos;
     private javax.swing.JButton btn_menu;
-    private javax.swing.JLabel fondo_universo;
-    private javax.swing.JLabel ganados_heroes;
+    private javax.swing.JLabel fondoUniverso;
+    private javax.swing.JLabel ganoH;
+    private javax.swing.JLabel ganoV;
     private javax.swing.JLabel historico;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 
 }
