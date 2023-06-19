@@ -35,7 +35,7 @@ public class universo extends javax.swing.JFrame {
        // ImageIcon menu= createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/proyecto/btn_regreso/btn_menuPrincipal.png");
        // btn_menu.setIcon(menu);
     }
-    private ImageIcon createImageIconFromURL(String imageUrl) {
+      private ImageIcon createImageIconFromURL(String imageUrl) {
         try {
             URL url = new URL(imageUrl);
             Image image = javax.imageio.ImageIO.read(url);
@@ -44,8 +44,7 @@ public class universo extends javax.swing.JFrame {
             e.printStackTrace();
             return null;
         }
-    }
-    private int obtenerNumeroUsuariosRegistrados() {//para el historico, tipo combobox
+    }    private int obtenerNumeroUsuariosRegistrados() {//para el historico, tipo combobox
         Persona[] arregloPersonas = controladorLogin.getArregloPersonas();
         String usuario = persona.getNombreUser();
 
@@ -57,13 +56,13 @@ public class universo extends javax.swing.JFrame {
     private void actualizarHistorico() {
         int numeroUsuariosRegistrados = obtenerNumeroUsuariosRegistrados();
         historico.setText(""+numeroUsuariosRegistrados);
-    }
+    }      
     private int obtenerNumeroUsuariosActivos() {
         Persona[] arregloPersonas = controladorLogin.getArregloPersonas();
         String usuario = persona.getNombreUser();
 
         long numeroPersonas = Arrays.stream(arregloPersonas)
-                            .filter(p -> p != null && p.getNombreUser() != null && !p.getNombreUser().trim().isEmpty() && !p.getNombreUser().equals("..."))
+                            .filter(p -> p != null && !p.getNombreUser().trim().isEmpty() && !p.getNombreUser().equals("..........."))
                             .count();
 
         return (int) numeroPersonas ;
@@ -86,6 +85,11 @@ public class universo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setOpaque(false);
+
+        jPanel2.setOpaque(false);
+
+        btn_menu.setOpaque(true);
         btn_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_menuMouseClicked(evt);
@@ -109,10 +113,16 @@ public class universo extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
+        historico.setFont(new java.awt.Font("Game Of Squids", 0, 48)); // NOI18N
+        historico.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         historico.setText("0");
+        historico.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         historico.setOpaque(true);
 
+        activos.setFont(new java.awt.Font("Game Of Squids", 0, 48)); // NOI18N
+        activos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         activos.setText("0");
+        activos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         activos.setOpaque(true);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -141,6 +151,8 @@ public class universo extends javax.swing.JFrame {
         );
 
         jPanel4.setOpaque(false);
+
+        fondo_universo.setOpaque(true);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);

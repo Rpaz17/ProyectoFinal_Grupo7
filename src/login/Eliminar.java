@@ -171,7 +171,7 @@ public class Eliminar extends javax.swing.JFrame {
         if (persona.getContrasena().equals(contraeliminar )) {
             JOptionPane.showMessageDialog(null, "Usuario eliminado existosamente");
             persona.setContrasena("");
-            persona.setNombreUser(" ");             
+            persona.setNombreUser("...........");             
             ventana.setVisible(true);
             this.setVisible(false);
         
