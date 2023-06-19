@@ -9,13 +9,14 @@ import login.Persona;
 
 public class bando extends javax.swing.JFrame {
     TableroStratego tablero;
+    oponente oponente;
     VentaLogin ventana;
     settings configuracion;
     Persona persona;
     String jugador1;
     String jugador2;
     
-    public bando(VentaLogin ventana, Persona persona,settings configuracion) {
+    public bando(VentaLogin ventana, Persona persona,settings configuracion, oponente oponente) {
         initComponents();
         this.setExtendedState(6);
         this.persona=persona;
