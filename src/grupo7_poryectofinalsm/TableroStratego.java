@@ -40,8 +40,6 @@ public class TableroStratego extends JFrame {
         this.configuracion=configuracion;
         initPersonajes();
         setPersonajes();
-        botonInicio.setOpaque(false);
-        botonFinal.setOpaque(false);
         //añadi esto
         ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/665cd5a441a9935ac0d6e8916fd4ddd2f1afa74b/src/Imagenes_rebeca/TodosLosFondos/tablero_fin.png");
        jLabel1.setIcon(icono);
@@ -71,8 +69,8 @@ public class TableroStratego extends JFrame {
         jPanel5 = new javax.swing.JPanel();
         btn_menu = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,7 +78,7 @@ public class TableroStratego extends JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 115, Short.MAX_VALUE)
+            .addGap(0, 113, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,19 +95,19 @@ public class TableroStratego extends JFrame {
 
         jPanel6.setBackground(new java.awt.Color(204, 255, 204));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 770));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
-        jPanel1.setOpaque(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
+            .addGap(0, 760, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
+            .addGap(0, 770, Short.MAX_VALUE)
         );
 
         jPanel6.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, -2, 760, 770));
@@ -129,7 +127,7 @@ public class TableroStratego extends JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -168,8 +166,8 @@ public class TableroStratego extends JFrame {
                 botones[f][c].setBorder(javax.swing.BorderFactory.createEtchedBorder());
                 botonContador++;
                 botones[f][c].setBackground(null);
-//                botones[f][c].setOpaque(false);
-//                botones[f][c].setContentAreaFilled(false);
+               botones[f][c].setOpaque(false);
+                botones[f][c].setContentAreaFilled(false);
                 botones[f][c].addMouseListener(new MouseAdapter() {
                         public void mouseClicked(MouseEvent evt) {
                                 botonesMouseClicked(evt);
