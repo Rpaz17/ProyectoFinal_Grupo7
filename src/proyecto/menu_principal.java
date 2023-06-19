@@ -5,6 +5,7 @@ import java.awt.Image;
 import java.io.IOException;
 import java.net.URL;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class menu_principal extends javax.swing.JFrame {
 
@@ -262,8 +263,11 @@ public class menu_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_MiPerfilActionPerformed
 
     private void CerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CerrarSesionMouseClicked
-        ventana.setVisible(true); // Vuelve a hacer visible la ventana de inicio de sesión
-        this.setVisible(false);
+        int respuesta = JOptionPane.showConfirmDialog(this, "¿Estás seguro de querer cerrar sesión?", "CERRAR SESION", JOptionPane.YES_NO_OPTION);
+            if (respuesta == JOptionPane.YES_OPTION) {
+                ventana.setVisible(true); // Vuelve a hacer visible la ventana de inicio de sesión
+                this.setVisible(false);
+            }
     }//GEN-LAST:event_CerrarSesionMouseClicked
 
     private void btn_universoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_universoMouseClicked
