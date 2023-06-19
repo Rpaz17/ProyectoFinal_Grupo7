@@ -51,14 +51,14 @@ public class oponente extends javax.swing.JFrame {
         String usuario = persona.getNombreUser();
 
         String[] colador = Arrays.stream(arregloPersonas)
-                                 .filter(p -> p != null && !p.getNombreUser().equals(usuario) && p.getNombreUser() != null && !p.getNombreUser().trim().isEmpty())
+                                 .filter(p -> p != null && !p.getNombreUser().equals(usuario) && p.getNombreUser() != null && !p.getNombreUser().trim().isEmpty() && !p.getNombreUser().equals("..........."))
                                  .map(Persona::getNombreUser)
-                                 .filter(nombre -> !nombre.trim().isEmpty() && !nombre.equals(" "))
                                  .toArray(String[]::new);
 
         DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>(colador);
         comboBox_oponente.setModel(comboBoxModel);
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
