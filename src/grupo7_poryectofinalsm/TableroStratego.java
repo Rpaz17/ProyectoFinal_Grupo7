@@ -502,7 +502,7 @@ public class TableroStratego extends JFrame {
                     botones[f][c].setText(heroes[posicion_heroe].Nombre+"("+String.valueOf(heroes[posicion_heroe].Nivel)+" )");
                     botones[f][c].SetCharacter(heroes[posicion_heroe]);
                     heroe_actual--;
-                }
+                } // POSICION DE IMAGENES EN BOTON
                 if (botones[f][c].character.Nombre.equals("Mr Fantastic")){
                     ImageIcon fantastic = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/10.mr_fantastic.png");
                     botones[f][c].setIcon(fantastic);
@@ -609,20 +609,6 @@ public class TableroStratego extends JFrame {
         int colTV = getRandom(1,8);
         ImageIcon tierrav = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaV/planet_earth_villano.png");
         ImageIcon pumpkin = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaV/pumpkin_bomb.png");
-        if (turnoPara.equals("Vilano")){
-                botones[0][colTV].setIcon(tierrav);
-                botones[0][colTV].SetCharacter(tierraV);
-                botones[0][colTV].habilitado=true;
-                botones[0][colTV-1].setIcon(pumpkin);
-                botones[0][colTV-1].SetCharacter(bombaV);
-                botones[0][colTV-1].habilitado=true;
-                botones[0][colTV+1].setIcon(pumpkin);
-                botones[0][colTV+1].SetCharacter(bombaV);
-                botones[0][colTV+1].habilitado=true;
-                botones[1][colTV].setIcon(pumpkin);
-                botones[1][colTV].SetCharacter(bombaV);
-                botones[1][colTV].habilitado=true;
-        }else if (turnoPara.equals("Heroe")){
                 botones[0][colTV].setIcon(desconocido);
                 botones[0][colTV].SetCharacter(tierraV);
                 botones[0][colTV].habilitado=false;
@@ -636,7 +622,6 @@ public class TableroStratego extends JFrame {
                 botones[1][colTV].SetCharacter(bombaV);
                 botones[1][colTV].habilitado=false;
 
-        }
         int pb=1;
         while(pb<=3){
             int f=getRandom(0,1);
@@ -672,6 +657,106 @@ public class TableroStratego extends JFrame {
                     botones[f][c].SetCharacter(villanos[posicion_villano]);
                     botones[f][c].habilitado=false;
                     villano_actual--;
+                }
+                 if (botones[f][c].character.Nombre.equals("Dr Doom")){
+                    ImageIcon doom = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/10.dr_doom.png");
+                    botones[f][c].setIcon(doom);
+                }else if (botones[f][c].character.Nombre.equals("Black Widow")){
+                    ImageIcon black = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/1.black_widow.png");
+                    botones[f][c].setIcon(black);
+                }else if (botones[f][c].character.Nombre.equals("Galactus")){
+                    ImageIcon galactus = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/9.galactus.png");
+                    botones[f][c].setIcon(galactus);
+                }else if (botones[f][c].character.Nombre.equals("Kingpin")){
+                    ImageIcon nick = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/8.kingpin.png");
+                    botones[f][c].setIcon(nick);
+                }else if (botones[f][c].character.Nombre.equals("Magneto")){
+                    ImageIcon spider = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/8.magneto.png");
+                    botones[f][c].setIcon(spider);
+                }else if (botones[f][c].character.Nombre.equals("Apocalypse")){
+                    ImageIcon apocalypse = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/7.apocalypse.png");
+                    botones[f][c].setIcon(apocalypse);
+                }else if (botones[f][c].character.Nombre.equals("Green Goblin")){
+                    ImageIcon goblin = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/7.green_goblin.png");
+                    botones[f][c].setIcon(goblin);
+                }else if (botones[f][c].character.Nombre.equals("Venom")){
+                    ImageIcon venom = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/7.venom.png");
+                    botones[f][c].setIcon(venom);
+                }else if (botones[f][c].character.Nombre.equals("Bullseye")){
+                    ImageIcon bullseye = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/6.bullseye.png");
+                    botones[f][c].setIcon(bullseye);
+                }else if (botones[f][c].character.Nombre.equals("Omega Red")){
+                    ImageIcon red = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/6.omega_red.png");
+                    botones[f][c].setIcon(red);
+                }else if (botones[f][c].character.Nombre.equals("Onslaught")){
+                    ImageIcon ons = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/6.onslaught.png");
+                    botones[f][c].setIcon(ons);
+                }else if (botones[f][c].character.Nombre.equals("Red Skull")){
+                    ImageIcon skull = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/6.red_skull.png");
+                    botones[f][c].setIcon(skull);
+                }else if (botones[f][c].character.Nombre.equals("Mystique")){
+                    ImageIcon mystique = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/5.mystique.png");
+                    botones[f][c].setIcon(mystique);
+                }else if (botones[f][c].character.Nombre.equals("Misterio")){
+                    ImageIcon misterio = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/5.mysterio.png");
+                    botones[f][c].setIcon(misterio);
+                }else if (botones[f][c].character.Nombre.equals("Dr Octopus")){
+                    ImageIcon dr = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/5.dr_octopus.png");
+                    botones[f][c].setIcon(dr);
+                }else if (botones[f][c].character.Nombre.equals("Deadpool")){
+                    ImageIcon deadopol = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/5.deadpool.png");
+                    botones[f][c].setIcon(deadopol);
+                }else if (botones[f][c].character.Nombre.equals("Abomination")){
+                    ImageIcon abomination = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/4.abomination.png");
+                    botones[f][c].setIcon(abomination);
+                }else if (botones[f][c].character.Nombre.equals("Thanos")){
+                    ImageIcon thanos = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/4.thanos.png");
+                    botones[f][c].setIcon(thanos);
+                }else if (botones[f][c].character.Nombre.equals("Black Cat")){
+                    ImageIcon cat = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/4.black_cat.png");
+                    botones[f][c].setIcon(cat);
+                }else if (botones[f][c].character.Nombre.equals("Sabretooth")){
+                    ImageIcon sabre = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/4.sabretooth.png");
+                    botones[f][c].setIcon(sabre);
+                }else if (botones[f][c].character.Nombre.equals("Juggernaut")){
+                    ImageIcon jugger = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/3.juggernaut.png");
+                    botones[f][c].setIcon(jugger);
+                }else if (botones[f][c].character.Nombre.equals("Rhino")){
+                    ImageIcon rhino = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/3.rhino.png");
+                    botones[f][c].setIcon(rhino);
+                }else if (botones[f][c].character.Nombre.equals("Carnage")){
+                    ImageIcon carnage = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/3.carnage.png");
+                    botones[f][c].setIcon(carnage);
+                }else if (botones[f][c].character.Nombre.equals("Mole Man")){
+                    ImageIcon mole = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/3.mole_man.png");
+                    botones[f][c].setIcon(mole);
+                }else if (botones[f][c].character.Nombre.equals("Lizard")){
+                    ImageIcon lizard = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/3.lizard.png");
+                    botones[f][c].setIcon(lizard);
+                }else if (botones[f][c].character.Nombre.equals("Mr Sinister")){
+                    ImageIcon sinister = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/2.Mr_sinister.png");
+                    botones[f][c].setIcon(sinister);
+                }else if (botones[f][c].character.Nombre.equals("Sentinel 1")){
+                    ImageIcon sentinel1 = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/2.sentinel_1.png");
+                    botones[f][c].setIcon(sentinel1);
+                }else if (botones[f][c].character.Nombre.equals("Ultron")){
+                    ImageIcon ultron = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/2.ultron.png");
+                    botones[f][c].setIcon(ultron);
+                }else if (botones[f][c].character.Nombre.equals("Sand Man")){
+                    ImageIcon sand = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/2.sandman.png");
+                    botones[f][c].setIcon(sand);
+                }else if (botones[f][c].character.Nombre.equals("Leader")){
+                    ImageIcon leader = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/2.leader.png");
+                    botones[f][c].setIcon(leader);
+                }else if (botones[f][c].character.Nombre.equals("Viper")){
+                    ImageIcon viper = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/2.viper.png");
+                    botones[f][c].setIcon(viper);
+                }else if (botones[f][c].character.Nombre.equals("Sentinel 2")){
+                    ImageIcon sentinel2 = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/2.sentinel_2.png");
+                    botones[f][c].setIcon(sentinel2);
+                }else if (botones[f][c].character.Nombre.equals("Elektro")){
+                    ImageIcon elektro = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/2.electro.png");
+                    botones[f][c].setIcon(elektro);
                 }
             }
         }
