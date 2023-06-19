@@ -84,8 +84,7 @@ public class universo extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         fondoUniverso = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setEnabled(false);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setOpaque(false);
 
