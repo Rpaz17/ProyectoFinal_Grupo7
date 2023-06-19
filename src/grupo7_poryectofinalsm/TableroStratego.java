@@ -138,8 +138,8 @@ public class TableroStratego extends JFrame {
     private void btn_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_menuMouseClicked
         int confirmacion=JOptionPane.showConfirmDialog(rootPane, "Estas seguro que deseas rendirte? Perderas tus puntos en la partida!", "", JOptionPane.YES_NO_OPTION);
         if(confirmacion == JOptionPane.YES_OPTION){
-            menu_principal menu = new menu_principal(ventana,persona,configuracion);
-            menu.setVisible(true);
+            info_termina_partida info = new info_termina_partida(ventana,persona,configuracion);
+            info.setVisible(true);
             this.setVisible(false);
         }else if ( confirmacion == JOptionPane.NO_OPTION){
             this.setVisible(true);
