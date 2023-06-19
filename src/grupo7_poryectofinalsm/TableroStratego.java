@@ -273,12 +273,16 @@ public class TableroStratego extends JFrame {
                                 }
                             }
                          }// cierre if verificacion de misma fila y misma columna
+                         ImageIcon desconocido = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/d0016110e6a873f41cc9b232ddf9fdb2bccd5c7a/src/Imagenes_rebeca/desconocido.png");
                         if(botonPresionado.character==null && mover) { //EN CASO DE QUE LA SEGUNDA CASILLA SEA NULA
                             botonInicio.setBorder(BorderFactory.createEmptyBorder());
                             botonPresionado.SetCharacter( botonInicio.character);// el boton presionado toma la informacion del personaje del primero boton seleccionado
                             botonPresionado.setText(botonInicio.getText());// el boton presionado toma la informacion del primer boton seleccionado
+                             botonPresionado.setIcon(botonInicio.getSelectedIcon());
                             botonInicio.setText("");// el texto del primero boton queda en blanco
                             botonInicio.character=null;// la informacion del persoanje de este boton qeuda en nulo
+                            botonInicio.setIcon(null);
+                            
                             botonInicio=null;
                             cambioTurno();
     //                    botonInicio.setImage();
@@ -437,12 +441,13 @@ public class TableroStratego extends JFrame {
     }
     
     private void setPersonajes(){
+        ImageIcon desconocido = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/d0016110e6a873f41cc9b232ddf9fdb2bccd5c7a/src/Imagenes_rebeca/desconocido.png");
+        ImageIcon novablast = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaH/nova_blast.png");
           ImageIcon tierrah = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaH/heroes_planet_earth.png");
         //ubicando tierra y bombas de heroes
         int colTH = getRandom(1,8);
         botones[9][colTH].setIcon(tierrah);
         botones[9][colTH].SetCharacter(tierraH);
-        ImageIcon novablast = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaH/nova_blast.png");
         botones[9][colTH-1].setIcon(novablast);
         botones[9][colTH-1].SetCharacter(bombaH);
         botones[9][colTH+1].setIcon(novablast);
@@ -455,8 +460,13 @@ public class TableroStratego extends JFrame {
             int f=getRandom(8,9);
             int c=getRandom(0,9);
             if(botones[f][c].character==null){
+                if(turnoPara.equals("Heroe")){
                  botones[f][c].setIcon(novablast);
                 botones[f][c].SetCharacter(bombaH);
+                }else if(turnoPara.equals("Villano")){
+                    botones[f][c].setIcon(desconocido);
+                botones[f][c].SetCharacter(bombaH);
+                }
                 nb++;
             }
         }
@@ -479,11 +489,9 @@ public class TableroStratego extends JFrame {
         }
         // ubicando bombas y tierra villanos
         int colTV = getRandom(1,8);
-        ImageIcon desconocido = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/d0016110e6a873f41cc9b232ddf9fdb2bccd5c7a/src/Imagenes_rebeca/desconocido.png");
-        botones[0][colTV].setIcon(desconocido);
-      //  ImageIcon Voculto = createImageIconFromURL("");
-       //botones[0][colTV-1].setIcon(Voculto);
-       
+        ImageIcon tierrav = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaV/planet_earth_villano.png");
+        ImageIcon pumpkin = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaV/pumpkin_bomb.png");
+        if (turnoPara.equals("Heroe")){
         botones[0][colTV].setIcon(desconocido);
         botones[0][colTV].SetCharacter(tierraV);
         botones[0][colTV].habilitado=false;
@@ -496,14 +504,34 @@ public class TableroStratego extends JFrame {
         botones[1][colTV].setIcon(desconocido);
         botones[1][colTV].SetCharacter(bombaV);
         botones[1][colTV].habilitado=false;
+        }else if (turnoPara.equals("Villano")){
+        botones[0][colTV].setIcon(tierrav);
+        botones[0][colTV].SetCharacter(tierraV);
+        botones[0][colTV].habilitado=false;
+        botones[0][colTV-1].setIcon(pumpkin);
+        botones[0][colTV-1].SetCharacter(bombaV);
+        botones[0][colTV-1].habilitado=false;
+        botones[0][colTV+1].setIcon(pumpkin);
+        botones[0][colTV+1].SetCharacter(bombaV);
+        botones[0][colTV+1].habilitado=false;
+        botones[1][colTV].setIcon(pumpkin);
+        botones[1][colTV].SetCharacter(bombaV);
+        botones[1][colTV].habilitado=false;
+        }
         int pb=1;
         while(pb<=3){
             int f=getRandom(0,1);
             int c=getRandom(0,9);
             if(botones[f][c].character == null) {
+                if(turnoPara.equals("Heroe")){
                 botones[f][c].setIcon(desconocido);
                 botones[f][c].SetCharacter(bombaV);
                 botones[f][c].habilitado=false;
+                }else if (turnoPara.equals("Villano")){
+                botones[f][c].setIcon(pumpkin);
+                botones[f][c].SetCharacter(bombaV);
+                botones[f][c].habilitado=false;
+                }
                 pb++;
             }
         }
@@ -532,7 +560,7 @@ public class TableroStratego extends JFrame {
     }
     
     private void cambioTurno(){
-                ImageIcon desconocido = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/d0016110e6a873f41cc9b232ddf9fdb2bccd5c7a/src/Imagenes_rebeca/desconocido.png");
+        ImageIcon desconocido = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/d0016110e6a873f41cc9b232ddf9fdb2bccd5c7a/src/Imagenes_rebeca/desconocido.png");
         if (turnoPara=="Heroe"){
             turnoPara="Villano";
         }else{
