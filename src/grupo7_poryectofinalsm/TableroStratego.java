@@ -282,7 +282,6 @@ public class TableroStratego extends JFrame {
                             botonInicio.setText("");// el texto del primero boton queda en blanco
                             botonInicio.character=null;// la informacion del persoanje de este boton qeuda en nulo
                             botonInicio.setIcon(null);
-                            
                             botonInicio=null;
                             cambioTurno();
     //                    botonInicio.setImage();
@@ -300,20 +299,31 @@ public class TableroStratego extends JFrame {
                                  JOptionPane.showMessageDialog(null, botonPresionado.character.Nombre+" con Rango"+botonPresionado.character.Nivel+" venció una "+botonInicio.character.Nombre+" con Rango "+botonInicio.character.Nivel+" !");
                                 botonInicio.character=null;
                                 botonInicio.setText(" "); // texto se vuelve nulo al igual que info
+                                botonInicio.setIcon(null);
                             } else if((botonInicio.character.Nivel==1 && botonPresionado.character.Nivel==10)){
                                   JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" con Rango"+botonInicio.character.Nivel+" venció una "+botonPresionado.character.Nombre+" con Rango "+botonPresionado.character.Nivel+" !");
-                                botonPresionado.character=null;
-                                botonPresionado.setText(" ");
+                                botonPresionado.character=botonInicio.character;
+                                botonPresionado.setText(botonInicio.getText());
+                                botonPresionado.setIcon(botonInicio.getSelectedIcon());
+                                botonInicio.character=null;
+                                botonInicio.setText("");
+                                botonInicio.setIcon(null);
                             }else if((botonInicio.character.Nivel==3 && botonPresionado.character.Nivel==11)){ // las cartas nivel 11 son las bombas
                                 JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" con Rango"+botonInicio.character.Nivel+" venció una "+botonPresionado.character.Nombre+"!");
-                                botonPresionado.character=null;
-                                botonPresionado.setText(" ");
+                                botonPresionado.character= botonInicio.character;
+                                botonPresionado.setText(botonInicio.getText());
+                                botonPresionado.setIcon(botonInicio.getSelectedIcon());
+                                botonInicio.character=null;
+                                botonInicio.setText("");
+                                botonInicio.setIcon(null);
                             } else if ((botonPresionado.character.Nombre.equals("Tierra Villanos"))){  // cuando la tierra es salvada
                                 int fin = JOptionPane.showConfirmDialog(null, "FELICIDADES HEROES SALVARON LA TIERRA Y DERROTARON A LOS VILLANOS!", "FIN DE LA PARTIDA",JOptionPane.OK_OPTION);
                                if(fin==JOptionPane.OK_OPTION){
                                 botonPresionado.character=botonInicio.character;
+                                botonPresionado.setIcon(botonInicio.getSelectedIcon());
                                 botonInicio.character=null;
                                 botonInicio.setText(""); // la info queda nula
+                                botonInicio.setIcon(null);
                                 regresar.setVisible(true); // regresa al menu principal
                                 this.setVisible(false);
                                }
@@ -321,6 +331,7 @@ public class TableroStratego extends JFrame {
                                  int fin = JOptionPane.showConfirmDialog(null, "FELICIDADES VILLANOS CAPTURARON LA TIERRA Y DERROTARON A LOS HEROES!", "FIN DE LA PARTIDA",JOptionPane.OK_OPTION);
                                if(fin==JOptionPane.OK_OPTION){
                                 botonPresionado.character=botonInicio.character;
+                                botonPresionado.setIcon(botonInicio.getSelectedIcon());
                                 botonInicio.character=null;
                                 botonInicio.setText("");
                                 regresar.setVisible(true); // regresa al menu principal
@@ -330,6 +341,8 @@ public class TableroStratego extends JFrame {
                                 if(botonInicio.character.Nivel>botonPresionado.character.Nivel){
                                     JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" de Rango "+botonInicio.character.Nivel+" VS "+botonPresionado.character.Nombre+" de Rango "+botonPresionado.character.Nivel+"\n\n"+botonPresionado.character.Nombre+" fue derrotado por "+botonInicio.character.Nombre);
                                     botonPresionado.character=botonInicio.character; // La info del boton se mueve hacia la casilla del contrario
+                                    botonPresionado.setIcon(botonInicio.getPressedIcon());
+                                    botonInicio.setIcon(null);
                                     botonInicio.character=null;
                                     botonInicio.setText("");
                                     //Falta mover la pieza que se elimino al panel de a lado y llevar contador
@@ -338,10 +351,13 @@ public class TableroStratego extends JFrame {
                                    JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" de Rango "+botonInicio.character.Nivel+" VS "+botonPresionado.character.Nombre+" de Rango "+botonPresionado.character.Nivel+"\n\n"+botonInicio.character.Nombre+" fue derrotado por "+botonPresionado.character.Nombre);
                                    botonInicio.setText(" ");
                                   botonInicio.character=null;
+                                  botonInicio.setIcon(null);
                                 }else if (botonInicio.character.Nivel==botonPresionado.character.Nivel){
                                     JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" de Rango "+botonInicio.character.Nivel+" VS "+botonPresionado.character.Nombre+" de Rango "+botonPresionado.character.Nivel+"\n "+"\nAmbos personajes fueron eliminados.");
                                       botonPresionado.character=null;
                                       botonPresionado.setText("");
+                                      botonPresionado.setIcon(null);
+                                      botonInicio.setIcon(null);
                                       botonInicio.character=null;
                                       botonInicio.setText(" ");
                                 }//comprobar los niveles y eliminar fichas
