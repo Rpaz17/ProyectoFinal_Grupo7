@@ -7,6 +7,8 @@ import grupo7_poryectofinalsm.*;
 import java.awt.Image;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
 import login.*;
 import login.Persona;
@@ -19,6 +21,8 @@ public class tutorial extends javax.swing.JFrame {
     VentaLogin ventana;
     Persona persona;
     settings configuracion;
+    private List<ImageIcon> imagenes;
+    private int indiceActual;
     public tutorial(VentaLogin ventana, Persona persona,settings configuracion) {
        initComponents();
         this.setExtendedState(6);  
@@ -29,6 +33,22 @@ public class tutorial extends javax.swing.JFrame {
         fondoConfi.setIcon(icono);
         ImageIcon menu= createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/proyecto/btn_regreso/btn_menuPrincipal.png");
         btn_menu.setIcon(menu);
+                 //Inicializar la lista de png
+        imagenes = new ArrayList<>();
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_1")); // Reemplaza "URL_IMAGEN_1" con la URL de la imagen 1
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_2")); 
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_3")); 
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_4")); 
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_5")); 
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_6")); 
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_7")); 
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_8")); 
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_9")); 
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_10")); 
+ 
+        tutorial.setIcon(imagenes.get(0));
+        indiceActual = 0;
+        
     }
     private ImageIcon createImageIconFromURL(String imageUrl) {
         try {
@@ -51,6 +71,10 @@ public class tutorial extends javax.swing.JFrame {
         btn_menu = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         tutorial = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        btn_anterior = new javax.swing.JButton();
+        btn_siguiente = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         fondoConfi = new javax.swing.JLabel();
 
@@ -76,8 +100,59 @@ public class tutorial extends javax.swing.JFrame {
         });
         jPanel3.add(btn_menu);
 
-        tutorial.setText("se hara como el ahorcado, cada vez que se seleccione un boton \"siguiente\" , se mostraran imagenes como instrucciones");
         jPanel4.add(tutorial);
+
+        btn_anterior.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
+        btn_anterior.setText("ANTERIOR");
+
+        btn_siguiente.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
+        btn_siguiente.setText("siguiente");
+        btn_siguiente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_siguienteMouseClicked(evt);
+            }
+        });
+
+        jPanel7.setOpaque(false);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 144, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 54, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(btn_anterior)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_siguiente)
+                .addGap(62, 62, 62))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btn_siguiente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_anterior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(31, 31, 31))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -86,19 +161,26 @@ public class tutorial extends javax.swing.JFrame {
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 1420, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(155, 155, 155)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 464, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(22, 22, 22)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 410, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36))))
         );
 
         jPanel5.setBackground(new java.awt.Color(0, 0, 0));
@@ -130,8 +212,25 @@ public class tutorial extends javax.swing.JFrame {
         this.setVisible(false);        
     }//GEN-LAST:event_btn_menuMouseClicked
 
+    private void btn_siguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_siguienteMouseClicked
+         indiceActual++;
+
+        // Verificar si se alcanzó el final de la lista de imágenes
+        if (indiceActual >= imagenes.size()) {
+            // Mostrar la última imagen en el JLabel "universo"
+            universo.setIcon(imagenes.get(imagenes.size() - 1));
+            return;
+        }
+
+        // Mostrar la imagen correspondiente en el JLabel "tutorial"
+        tutorial.setIcon(imagenes.get(indiceActual));
+          
+    }//GEN-LAST:event_btn_siguienteMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_anterior;
     private javax.swing.JButton btn_menu;
+    private javax.swing.JButton btn_siguiente;
     private javax.swing.JLabel fondoConfi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -139,6 +238,8 @@ public class tutorial extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JLabel tutorial;
     // End of variables declaration//GEN-END:variables
 }

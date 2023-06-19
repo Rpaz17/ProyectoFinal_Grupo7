@@ -15,6 +15,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class universo extends javax.swing.JFrame {
+
+    static void setIcon(ImageIcon get) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     Persona persona;
     VentaLogin ventana;
     settings configuracion;
