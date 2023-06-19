@@ -58,6 +58,7 @@ public class TableroStratego extends JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         btn_menu = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
@@ -65,15 +66,32 @@ public class TableroStratego extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
+        jLabel1.setText("*");
+        jLabel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel1AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 422, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btn_menu.setText("RENDIRSE");
@@ -162,6 +180,14 @@ public class TableroStratego extends JFrame {
     }//GEN-LAST:event_btn_menuMouseClicked
         }
     }
+    private void jLabel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel1AncestorAdded
+        if(turnoPara.equals("Heroe")){
+            jLabel1.setText("Es el turno de los HEROES!");
+        }else{
+              jLabel1.setText("Es el turno de los VILLANOS!");
+        }
+    }//GEN-LAST:event_jLabel1AncestorAdded
+
      private void initBotones(){
        GridLayout botonesLayout = new GridLayout(10,10);
        jPanel1.setLayout(botonesLayout);
@@ -1138,7 +1164,8 @@ public class TableroStratego extends JFrame {
                             botones[f][c].setIcon(storm);
                             botones[f][c].habilitado=true;
                     }
-                    }else if (!turnoPara.equals("Villano") || !turnoPara.equals("Heroe")){
+                           botones[f][c].habilitado=false;
+                    }else {
                         botones[f][c].habilitado=false;
                         if (botones[f][c].habilitado==false){
                         botones[f][c].setIcon(desconocido);
@@ -1189,6 +1216,7 @@ public class TableroStratego extends JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_menu;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
