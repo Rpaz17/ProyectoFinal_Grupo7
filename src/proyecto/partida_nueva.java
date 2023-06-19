@@ -3,6 +3,7 @@ import grupo7_poryectofinalsm.*;
 import java.awt.Image;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import javax.swing.ImageIcon;
 import login.*;
 import login.Persona;
@@ -12,13 +13,15 @@ public class partida_nueva extends javax.swing.JFrame {
     VentaLogin ventana;
     Persona persona;
     settings configuracion;
-
+    ControladorLogin controladorLogin;
     public partida_nueva(VentaLogin ventana, Persona persona,settings configuracion) {
         initComponents();
         this.setExtendedState(6);
         this.persona=persona;
         this.ventana=ventana;
         this.configuracion=configuracion;
+        this.controladorLogin = ventana.getControlador();
+
         ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_vacio.png");
         fondoPartida.setIcon(icono);
         ImageIcon menu= createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/proyecto/btn_regreso/btn_menuPrincipal.png");
@@ -36,6 +39,17 @@ public class partida_nueva extends javax.swing.JFrame {
             return null;
         }
     }
+    private int obtenerNumeroUsuariosActivos() {
+        Persona[] arregloPersonas = controladorLogin.getArregloPersonas();
+        String usuario = persona.getNombreUser();
+
+        long numeroPersonas = Arrays.stream(arregloPersonas)
+                                .filter(p -> p != null && !p.getNombreUser().equals(" "))
+                                .count();
+
+        return (int) numeroPersonas ;
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -126,9 +140,17 @@ public class partida_nueva extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_menuMouseClicked
 
     private void btn_partidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_partidaMouseClicked
-        oponente ventana2 = new oponente(ventana,persona,configuracion);
+    int numeroUsuariosActivos = obtenerNumeroUsuariosActivos();
+
+    if (numeroUsuariosActivos > 1) {
+        oponente ventana2 = new oponente(ventana, persona, configuracion);
         ventana2.setVisible(true);
         this.setVisible(false);
+    } else {
+        no_disponible no= new no_disponible(ventana, persona, configuracion);
+        no.setVisible(true);
+        this.setVisible(false);
+    }
     }//GEN-LAST:event_btn_partidaMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

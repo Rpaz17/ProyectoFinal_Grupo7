@@ -40,12 +40,8 @@ public class TableroStratego extends JFrame {
         this.configuracion=configuracion;
         initPersonajes();
         setPersonajes();
-        //añadi esto
-
-        
-        //hasta aqui
     }
-    private ImageIcon createImageIconFromURL(String imageUrl) {
+      private ImageIcon createImageIconFromURL(String imageUrl) {
         try {
             URL url = new URL(imageUrl);
             Image image = javax.imageio.ImageIO.read(url);
@@ -72,7 +68,7 @@ public class TableroStratego extends JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+            .addGap(0, 115, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,10 +83,10 @@ public class TableroStratego extends JFrame {
         });
         jPanel5.add(btn_menu);
 
-        jPanel6.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel6.setBackground(new java.awt.Color(204, 255, 204));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setOpaque(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -104,19 +100,18 @@ public class TableroStratego extends JFrame {
             .addGap(0, 770, Short.MAX_VALUE)
         );
 
-        jPanel6.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 760, 770));
+        jPanel6.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, -2, 760, 770));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 802, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,7 +157,7 @@ public class TableroStratego extends JFrame {
                 botonContador++;
                 botones[f][c].setBackground(null);
 //                botones[f][c].setOpaque(false);
-//                botones[f][c].setContentAreaFilled(true);
+//                botones[f][c].setContentAreaFilled(false);
                 botones[f][c].addMouseListener(new MouseAdapter() {
                         public void mouseClicked(MouseEvent evt) {
                                 botonesMouseClicked(evt);
@@ -182,29 +177,29 @@ public class TableroStratego extends JFrame {
             }
         }
        botones[4][6].setText("");
-       botones[4][6].setBackground(Color.MAGENTA);
+       botones[4][6].setBackground(Color.YELLOW);
        botones[4][6].disponible=false;
        botones[5][6].setText("");
-       botones[5][6].setBackground(Color.MAGENTA);
+       botones[5][6].setBackground(Color.YELLOW);
        botones[5][6].disponible=false;
        botones[4][7].setText("");
-       botones[4][7].setBackground(Color.MAGENTA);
+       botones[4][7].setBackground(Color.YELLOW);
        botones[4][7].disponible=false;
        botones[5][7].setText("");
-       botones[5][7].setBackground(Color.MAGENTA);
+       botones[5][7].setBackground(Color.YELLOW);
        botones[5][7].disponible=false;
        
        botones[4][2].setText("");
-       botones[4][2].setBackground(Color.YELLOW);
+       botones[4][2].setBackground(Color.MAGENTA);
        botones[4][2].disponible=false;
        botones[5][2].setText("");
-       botones[5][2].setBackground(Color.YELLOW);
+       botones[5][2].setBackground(Color.MAGENTA);
        botones[5][2].disponible=false;
        botones[4][3].setText("");
-       botones[4][3].setBackground(Color.YELLOW);
+       botones[4][3].setBackground(Color.MAGENTA);
        botones[4][3].disponible=false;
        botones[5][3].setText("");
-       botones[5][3].setBackground(Color.YELLOW);
+       botones[5][3].setBackground(Color.MAGENTA);
        botones[5][3].disponible=false;
     }
      
@@ -400,6 +395,7 @@ public class TableroStratego extends JFrame {
         heroes[31] = new Personaje("Heroe", 2, "Ice Man", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/2.ice_man.png");
         heroes[32] = new Personaje("Heroe", 2, "Storm", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/2.storm.png");
 
+        
         villanos[0] = new Personaje("Villano", 10, "Dr Doom", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/10.dr_doom.png");
         villanos[1] = new Personaje("Villano", 9, "Galactus", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/9.galactus.png");
         villanos[2] = new Personaje("Villano", 8, "Kingpin", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/8.kingpin.png");
@@ -434,22 +430,22 @@ public class TableroStratego extends JFrame {
         villanos[31] = new Personaje("Villano", 2, "Sentinel 2", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/2.sentinel_2.png");
         villanos[32] = new Personaje("Villano", 2, "Elektro", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/2.electro.png");
         
-        tierraH = new Personaje("Tierra", 0, "Tierra Heroes", "tierrah");
+        tierraH = new Personaje("Tierra", 0, "Tierra Heroes", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaH/heroes_planet_earth.png");
         tierraV = new Personaje("Tierra", 0, "Tierra Villanos", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaV/planet_earth_villano.png");
         bombaH = new Personaje("Bomba", 11, "Nova Blast", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaH/nova_blast.png");
         bombaV = new Personaje("Bomba", 11, "Pumpkin Bomb", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaV/pumpkin_bomb.png");
     }
     
     private void setPersonajes(){
+          ImageIcon tierrah = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaH/heroes_planet_earth.png");
         //ubicando tierra y bombas de heroes
-         ImageIcon tierrah = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaH/heroes_planet_earth.png");
         int colTH = getRandom(1,8);
         botones[9][colTH].setIcon(tierrah);
         botones[9][colTH].SetCharacter(tierraH);
         ImageIcon novablast = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaH/nova_blast.png");
         botones[9][colTH-1].setIcon(novablast);
         botones[9][colTH-1].SetCharacter(bombaH);
-         botones[9][colTH+1].setIcon(novablast);
+        botones[9][colTH+1].setIcon(novablast);
         botones[9][colTH+1].SetCharacter(bombaH);
         botones[8][colTH].setIcon(novablast);
         botones[8][colTH].SetCharacter(bombaH);
@@ -459,7 +455,7 @@ public class TableroStratego extends JFrame {
             int f=getRandom(8,9);
             int c=getRandom(0,9);
             if(botones[f][c].character==null){
-                botones[8][colTH].setIcon(novablast);
+                 botones[f][c].setIcon(novablast);
                 botones[f][c].SetCharacter(bombaH);
                 nb++;
             }
@@ -485,8 +481,8 @@ public class TableroStratego extends JFrame {
         int colTV = getRandom(1,8);
         ImageIcon desconocido = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/d0016110e6a873f41cc9b232ddf9fdb2bccd5c7a/src/Imagenes_rebeca/desconocido.png");
         botones[0][colTV].setIcon(desconocido);
-        //ImageIcon Voculto = createImageIconFromURL("");
-        //botones[0][colTV-1].setIcon(Voculto);
+      //  ImageIcon Voculto = createImageIconFromURL("");
+       //botones[0][colTV-1].setIcon(Voculto);
        
         botones[0][colTV].setIcon(desconocido);
         botones[0][colTV].SetCharacter(tierraV);
@@ -524,7 +520,7 @@ public class TableroStratego extends JFrame {
                 c =getRandom(0,9);
                 if(botones[f][c].character == null) {
                     botones[f][c].habilitado=false;
- //                   botones[f][c].setText(villanos[posicion_villano].Nombre+"("+String.valueOf(villanos[posicion_villano].Nivel)+" )");
+//                  botones[f][c].setText(villanos[posicion_villano].Nombre+"("+String.valueOf(villanos[posicion_villano].Nivel)+" )");
                     botones[f][c].setIcon(desconocido);
                     botones[f][c].SetCharacter(villanos[posicion_villano]);
                     botones[f][c].habilitado=false;
@@ -545,14 +541,15 @@ public class TableroStratego extends JFrame {
         for(int f=0; f<10;f++) {
             for(int c=0;c<10;c++){
                 if(botones[f][c].character!=null){
-            botones[f][c].setIcon(desconocido);
                     if(botones[f][c].character.Tipo==turnoPara || (turnoPara.equals("Villano") && botones[f][c].character.Nombre.equals("Pumpkin Bomb")) || (turnoPara.equals("Villano") && botones[f][c].character.Nombre.equals("Tierra Villanos"))
                             || (turnoPara.equals("Heroe") && botones[f][c].character.Nombre.equals("Nova Blast")) || (turnoPara.equals("Heroe") && botones[f][c].character.Nombre.equals("Tierra Heroes"))){
                         botones[f][c].setText(botones[f][c].character.Nombre+"("+String.valueOf(botones[f][c].character.Nivel)+")");
                         botones[f][c].habilitado=true;
                     }else{
-                        botones[f][c].setIcon(desconocido);
                         botones[f][c].habilitado=false;
+                        if (botones[f][c].habilitado==false){
+                        botones[f][c].setIcon(desconocido);
+                        }
                     }
                 }
             }

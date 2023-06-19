@@ -30,10 +30,10 @@ public class universo extends javax.swing.JFrame {
         this.controladorLogin = ventana.getControlador();
         actualizarHistorico();
         actualizarActivos();
-        ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_Universo.png");
-        fondo_universo.setIcon(icono);
-        ImageIcon menu= createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/proyecto/btn_regreso/btn_menuPrincipal.png");
-        btn_menu.setIcon(menu);
+        //ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_Universo.png");
+       // fondo_universo.setIcon(icono);
+       // ImageIcon menu= createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/proyecto/btn_regreso/btn_menuPrincipal.png");
+       // btn_menu.setIcon(menu);
     }
     private ImageIcon createImageIconFromURL(String imageUrl) {
         try {
@@ -66,7 +66,7 @@ public class universo extends javax.swing.JFrame {
                                 .filter(p -> p != null && !p.getNombreUser().equals(" "))
                                 .count();
 
-        return (int) numeroPersonas + 1;
+        return (int) numeroPersonas ;
     }
     private void actualizarActivos() {
         int numeroUsuariosActivos = obtenerNumeroUsuariosActivos();
