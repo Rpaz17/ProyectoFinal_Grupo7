@@ -9,9 +9,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.ImageIcon;
 import login.*;
 import login.Persona;
+import javax.swing.ImageIcon;
+
 
 /**
  *
@@ -23,6 +24,7 @@ public class tutorial extends javax.swing.JFrame {
     settings configuracion;
     private List<ImageIcon> imagenes;
     private int indiceActual;
+    
     public tutorial(VentaLogin ventana, Persona persona,settings configuracion) {
        initComponents();
         this.setExtendedState(6);  
@@ -30,21 +32,21 @@ public class tutorial extends javax.swing.JFrame {
         this.persona = persona;
         this.configuracion=configuracion;
         ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/Imagenes_rebeca/TodosLosFondos/fondo_vacio.png");
-        fondoConfi.setIcon(icono);
+       fondoConfi.setIcon(icono);
         ImageIcon menu= createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/proyecto/btn_regreso/btn_menuPrincipal.png");
         btn_menu.setIcon(menu);
-                 //Inicializar la lista de png
+         //Inicializar la lista de png
         imagenes = new ArrayList<>();
-        imagenes.add(createImageIconFromURL("URL_IMAGEN_1")); // Reemplaza "URL_IMAGEN_1" con la URL de la imagen 1
-        imagenes.add(createImageIconFromURL("URL_IMAGEN_2")); 
-        imagenes.add(createImageIconFromURL("URL_IMAGEN_3")); 
-        imagenes.add(createImageIconFromURL("URL_IMAGEN_4")); 
-        imagenes.add(createImageIconFromURL("URL_IMAGEN_5")); 
-        imagenes.add(createImageIconFromURL("URL_IMAGEN_6")); 
-        imagenes.add(createImageIconFromURL("URL_IMAGEN_7")); 
-        imagenes.add(createImageIconFromURL("URL_IMAGEN_8")); 
-        imagenes.add(createImageIconFromURL("URL_IMAGEN_9")); 
-        imagenes.add(createImageIconFromURL("URL_IMAGEN_10")); 
+        imagenes.add(createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/49dae1a155d18f8692c29dac03700137ebe4c38c/src/Imagenes_rebeca/tutorial/1.png")); // Reemplaza "URL_IMAGEN_1" con la URL de la imagen 1
+        imagenes.add(createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/49dae1a155d18f8692c29dac03700137ebe4c38c/src/Imagenes_rebeca/tutorial/2.png")); 
+        imagenes.add(createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/49dae1a155d18f8692c29dac03700137ebe4c38c/src/Imagenes_rebeca/tutorial/3.png")); 
+        imagenes.add(createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/4b726df5206fe03a41d00b7fee780890bba334c6/src/Imagenes_rebeca/tutorial/4.png")); 
+        imagenes.add(createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/4b726df5206fe03a41d00b7fee780890bba334c6/src/Imagenes_rebeca/tutorial/5.png")); 
+        imagenes.add(createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/4b726df5206fe03a41d00b7fee780890bba334c6/src/Imagenes_rebeca/tutorial/6.png")); 
+        imagenes.add(createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/4b726df5206fe03a41d00b7fee780890bba334c6/src/Imagenes_rebeca/tutorial/7.png")); 
+        imagenes.add(createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/4b726df5206fe03a41d00b7fee780890bba334c6/src/Imagenes_rebeca/tutorial/8.png")); 
+        imagenes.add(createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/4b726df5206fe03a41d00b7fee780890bba334c6/src/Imagenes_rebeca/tutorial/9.png")); 
+        imagenes.add(createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/4b726df5206fe03a41d00b7fee780890bba334c6/src/Imagenes_rebeca/tutorial/10.png")); 
  
         tutorial.setIcon(imagenes.get(0));
         indiceActual = 0;
@@ -102,10 +104,21 @@ public class tutorial extends javax.swing.JFrame {
 
         jPanel4.add(tutorial);
 
-        btn_anterior.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
-        btn_anterior.setText("ANTERIOR");
+        jPanel6.setOpaque(false);
 
+        btn_anterior.setBackground(new java.awt.Color(51, 51, 51));
+        btn_anterior.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
+        btn_anterior.setForeground(new java.awt.Color(255, 255, 255));
+        btn_anterior.setText("ANTERIOR");
+        btn_anterior.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_anteriorMouseClicked(evt);
+            }
+        });
+
+        btn_siguiente.setBackground(new java.awt.Color(51, 51, 51));
         btn_siguiente.setFont(new java.awt.Font("Game Of Squids", 0, 18)); // NOI18N
+        btn_siguiente.setForeground(new java.awt.Color(255, 255, 255));
         btn_siguiente.setText("siguiente");
         btn_siguiente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -142,7 +155,7 @@ public class tutorial extends javax.swing.JFrame {
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -169,18 +182,15 @@ public class tutorial extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 410, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36))))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
         );
 
         jPanel5.setBackground(new java.awt.Color(0, 0, 0));
@@ -213,19 +223,28 @@ public class tutorial extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_menuMouseClicked
 
     private void btn_siguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_siguienteMouseClicked
-         indiceActual++;
+    indiceActual++;
 
-        // Verificar si se alcanzó el final de la lista de imágenes
         if (indiceActual >= imagenes.size()) {
             // Mostrar la última imagen en el JLabel "universo"
-            universo.setIcon(imagenes.get(imagenes.size() - 1));
+            tutorial.setIcon(imagenes.get(imagenes.size() - 1));
             return;
         }
 
-        // Mostrar la imagen correspondiente en el JLabel "tutorial"
         tutorial.setIcon(imagenes.get(indiceActual));
-          
+    
     }//GEN-LAST:event_btn_siguienteMouseClicked
+
+    private void btn_anteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_anteriorMouseClicked
+    indiceActual--;
+
+        if (indiceActual < 0) {
+            indiceActual = imagenes.size() - 1; // Avanzar al final de la lista
+        }
+
+        tutorial.setIcon(imagenes.get(indiceActual));
+
+    }//GEN-LAST:event_btn_anteriorMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_anterior;

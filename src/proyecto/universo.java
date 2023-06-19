@@ -179,6 +179,9 @@ public class universo extends javax.swing.JFrame {
         );
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel4.setOpaque(false);
+
+        fondo_universo.setOpaque(true);
         jPanel4.add(fondo_universo);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
