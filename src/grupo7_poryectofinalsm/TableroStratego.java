@@ -441,7 +441,7 @@ public class TableroStratego extends JFrame {
         villanos[20] = new Personaje("Villano", 3, "Rhino", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/3.rhino.png");
         villanos[21] = new Personaje("Villano", 3, "Carnage", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/3.carnage.png");
         villanos[22] = new Personaje("Villano", 3, "Mole Man", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/3.mole_man.png");
-        villanos[23] = new Personaje("Villano", 3, "Lizzard", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/3.lizard.png");
+        villanos[23] = new Personaje("Villano", 3, "Lizard", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/3.lizard.png");
         villanos[24] = new Personaje("Villano", 1, "Black Widow", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/1.black_widow.png");
         villanos[25] = new Personaje("Villano", 2, "Mr Sinister", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/2.Mr_sinister.png");
         villanos[26] = new Personaje("Villano", 2, "Sentinel 1", "https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/2.sentinel_1.png");
@@ -478,13 +478,8 @@ public class TableroStratego extends JFrame {
             int f=getRandom(8,9);
             int c=getRandom(0,9);
             if(botones[f][c].character==null){
-                if(turnoPara.equals("Heroe")){
                  botones[f][c].setIcon(novablast);
                 botones[f][c].SetCharacter(bombaH);
-                }else if(turnoPara.equals("Villano")){
-                    botones[f][c].setIcon(desconocido);
-                botones[f][c].SetCharacter(bombaH);
-                }
                 nb++;
             }
         }
@@ -609,33 +604,31 @@ public class TableroStratego extends JFrame {
         int colTV = getRandom(1,8);
         ImageIcon tierrav = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaV/planet_earth_villano.png");
         ImageIcon pumpkin = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaV/pumpkin_bomb.png");
-                botones[0][colTV].setIcon(desconocido);
+                botones[0][colTV].setIcon(tierrav);
                 botones[0][colTV].SetCharacter(tierraV);
-                botones[0][colTV].habilitado=false;
-                botones[0][colTV-1].setIcon(desconocido);
+                botones[0][colTV].habilitado=true;
+                botones[0][colTV-1].setIcon(pumpkin);
                 botones[0][colTV-1].SetCharacter(bombaV);
-                botones[0][colTV-1].habilitado=false;
-                botones[0][colTV+1].setIcon(desconocido);
+                botones[0][colTV-1].habilitado=true;
+                botones[0][colTV+1].setIcon(pumpkin);
                 botones[0][colTV+1].SetCharacter(bombaV);
-                botones[0][colTV+1].habilitado=false;
-                botones[1][colTV].setIcon(desconocido);
+                botones[0][colTV+1].habilitado=true;
+                botones[1][colTV].setIcon(pumpkin);
                 botones[1][colTV].SetCharacter(bombaV);
-                botones[1][colTV].habilitado=false;
+                botones[1][colTV].habilitado=true;
 
         int pb=1;
         while(pb<=3){
             int f=getRandom(0,1);
             int c=getRandom(0,9);
             if(botones[f][c].character == null) {
-                if(turnoPara.equals("Heroe")){
-                botones[f][c].setIcon(desconocido);
-                botones[f][c].SetCharacter(bombaV);
-                botones[f][c].habilitado=false;
-                }else if (turnoPara.equals("Villano")){
+//                botones[f][c].setIcon(desconocido);
+//                botones[f][c].SetCharacter(bombaV);
+//                botones[f][c].habilitado=false;
                 botones[f][c].setIcon(pumpkin);
                 botones[f][c].SetCharacter(bombaV);
                 botones[f][c].habilitado=false;
-                }
+                
                 pb++;
             }
         }
@@ -676,7 +669,7 @@ public class TableroStratego extends JFrame {
                            }else if (botones[f][c].character.Nombre.equals("Apocalypse")){
                                ImageIcon apocalypse = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/7.apocalypse.png");
                                botones[f][c].setIcon(apocalypse);
-                           }else if (botones[f][c].character.Nombre.equals("Green Goblin")){
+                           }else if (botones[f][c].character.Nombre.equals("GreenGoblin")){
                                ImageIcon goblin = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/villanos/7.green_goblin.png");
                                botones[f][c].setIcon(goblin);
                            }else if (botones[f][c].character.Nombre.equals("Venom")){
