@@ -69,7 +69,7 @@ public class partida_nueva extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         fondoPartida = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jPanel8.setBackground(new java.awt.Color(0, 153, 153));
         jPanel8.setOpaque(false);

@@ -61,7 +61,7 @@ public class bando extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         fondo_bando = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jPanel7.setBackground(new java.awt.Color(0, 153, 153));
         jPanel7.setOpaque(false);

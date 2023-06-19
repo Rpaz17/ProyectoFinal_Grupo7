@@ -58,7 +58,7 @@ public class MiPerfil extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         fondoMiperfil = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
 
         jPanel5.setOpaque(false);
