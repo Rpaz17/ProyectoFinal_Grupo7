@@ -137,16 +137,31 @@ public class TableroStratego extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_menuMouseClicked
+       
         int confirmacion=JOptionPane.showConfirmDialog(rootPane, "Estas seguro que deseas rendirte? Perderas tus puntos en la partida!", "RENDIRSE", JOptionPane.YES_NO_OPTION);
         if(confirmacion == JOptionPane.YES_OPTION){
-            info_termina_partida info = new info_termina_partida(ventana,persona,configuracion);
-            info.setVisible(true);
-            this.setVisible(false);
+             if (turnoPara.equals("Heroe") && confirmacion==JOptionPane.YES_OPTION){
+            int respuesta = JOptionPane.showConfirmDialog(this, "EL HEROE SE HA RENDIDO", "SALIR", JOptionPane.YES_OPTION);
+            if (respuesta == JOptionPane.YES_OPTION) {
+                menu_principal menu=new menu_principal(ventana,persona,configuracion);
+                menu.setVisible(true);
+                this.setVisible(false);
+            }
+            }else{
+             if (turnoPara.equals("Villanos") && confirmacion==JOptionPane.YES_OPTION){
+            int respuesta = JOptionPane.showConfirmDialog(this, "EL VILLANOS SE HA RENDIDO", "SALIR", JOptionPane.YES_OPTION);
+            if (respuesta == JOptionPane.YES_OPTION) {
+                menu_principal menu=new menu_principal(ventana,persona,configuracion);
+                menu.setVisible(true);
+                this.setVisible(false);
+            
+        }
         }else if ( confirmacion == JOptionPane.NO_OPTION){
             this.setVisible(true);
         }        
     }//GEN-LAST:event_btn_menuMouseClicked
-
+        }
+    }
      private void initBotones(){
        GridLayout botonesLayout = new GridLayout(10,10);
        jPanel1.setLayout(botonesLayout);
