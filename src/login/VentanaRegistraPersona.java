@@ -272,7 +272,7 @@ public class VentanaRegistraPersona extends javax.swing.JFrame {
         En este botón loque vamos a lograr hacer es gestionar o agregar a una
         persona a una listas de personas
         */
-
+        int error=0;
         if (txtNombreUser.getText().isEmpty()
             || txtContrasena.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Error: Algunos de los campos se encuentran vacios");
@@ -281,6 +281,19 @@ public class VentanaRegistraPersona extends javax.swing.JFrame {
             String nombreUser = txtNombreUser.getText();
             String contrasena = txtContrasena.getText();
 
+            
+            for (int i = 0; i < nombreUser.length(); i++) {
+            if (nombreUser.charAt(i) == ' ') {
+                error = 1;
+                break;}
+        }
+            
+            for (int i = 0; i < contrasena.length(); i++) {
+            if (contrasena.charAt(i) == ' ') {
+                error = 1;
+                break;}
+           }
+            if(error==0){
             if(contrasena.length()==5){
                 Persona persona = new Persona(nombreUser, contrasena);
 
@@ -298,6 +311,9 @@ public class VentanaRegistraPersona extends javax.swing.JFrame {
             } //fin
             else{
                 JOptionPane.showMessageDialog(null, "Error: El password debe tener 5 caracteres");
+            }
+        } else {
+                 JOptionPane.showMessageDialog(null, "Error: No puede ingresar este tipo de parametro, vuelva a intentarlo");
             }
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
