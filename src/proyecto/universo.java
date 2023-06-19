@@ -96,6 +96,11 @@ public class universo extends javax.swing.JFrame {
                 btn_menuMouseClicked(evt);
             }
         });
+        btn_menu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_menuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -170,6 +175,11 @@ public class universo extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
         jPanel3.setOpaque(false);
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
+        });
 
         fondoUniverso.setOpaque(true);
         jPanel3.add(fondoUniverso);
@@ -197,6 +207,16 @@ public class universo extends javax.swing.JFrame {
         menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_menuMouseClicked
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+        
+    }//GEN-LAST:event_jPanel3MouseClicked
+
+    private void btn_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menuActionPerformed
+           menu_principal menu = new menu_principal(ventana,persona,configuracion);
+        menu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_menuActionPerformed
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel activos;
