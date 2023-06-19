@@ -7,6 +7,8 @@ import grupo7_poryectofinalsm.*;
 import java.awt.Image;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
 import login.*;
 import login.Persona;
@@ -19,6 +21,8 @@ public class tutorial extends javax.swing.JFrame {
     VentaLogin ventana;
     Persona persona;
     settings configuracion;
+    private List<ImageIcon> imagenes;
+    private int indiceActual;
     public tutorial(VentaLogin ventana, Persona persona,settings configuracion) {
        initComponents();
         this.setExtendedState(6);  
@@ -29,6 +33,21 @@ public class tutorial extends javax.swing.JFrame {
         fondoConfi.setIcon(icono);
         ImageIcon menu= createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/be3579cdee7b09c0e5df99420f331bcb1d0dc1cc/src/proyecto/btn_regreso/btn_menuPrincipal.png");
         btn_menu.setIcon(menu);
+                 //Inicializar la lista de png
+        imagenes = new ArrayList<>();
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_1")); // Reemplaza "URL_IMAGEN_1" con la URL de la imagen 1
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_2")); 
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_3")); 
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_4")); 
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_5")); 
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_6")); 
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_7")); 
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_8")); 
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_9")); 
+        imagenes.add(createImageIconFromURL("URL_IMAGEN_10")); 
+ 
+        tutorial.setIcon(imagenes.get(0));
+        indiceActual = 0;
         
     }
     private ImageIcon createImageIconFromURL(String imageUrl) {
@@ -194,7 +213,18 @@ public class tutorial extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_menuMouseClicked
 
     private void btn_siguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_siguienteMouseClicked
-       
+         indiceActual++;
+
+        // Verificar si se alcanzó el final de la lista de imágenes
+        if (indiceActual >= imagenes.size()) {
+            // Mostrar la última imagen en el JLabel "universo"
+            universo.setIcon(imagenes.get(imagenes.size() - 1));
+            return;
+        }
+
+        // Mostrar la imagen correspondiente en el JLabel "tutorial"
+        tutorial.setIcon(imagenes.get(indiceActual));
+          
     }//GEN-LAST:event_btn_siguienteMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
