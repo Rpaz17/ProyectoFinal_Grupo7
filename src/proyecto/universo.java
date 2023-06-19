@@ -89,8 +89,6 @@ public class universo extends javax.swing.JFrame {
 
         jPanel1.setOpaque(false);
 
-        jPanel2.setOpaque(false);
-
         btn_menu.setOpaque(true);
         btn_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

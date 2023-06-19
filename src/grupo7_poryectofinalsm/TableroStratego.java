@@ -68,7 +68,7 @@ public class TableroStratego extends JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 115, Short.MAX_VALUE)
+            .addGap(0, 422, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,10 +83,10 @@ public class TableroStratego extends JFrame {
         });
         jPanel5.add(btn_menu);
 
-        jPanel6.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel6.setBackground(new java.awt.Color(17, 0, 17));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(47, 0, 63));
         jPanel1.setOpaque(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -100,23 +100,24 @@ public class TableroStratego extends JFrame {
             .addGap(0, 770, Short.MAX_VALUE)
         );
 
-        jPanel6.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, -2, 760, 770));
+        jPanel6.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 760, 770));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 782, Short.MAX_VALUE)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -156,6 +157,7 @@ public class TableroStratego extends JFrame {
                 botones[f][c].setBorder(javax.swing.BorderFactory.createEtchedBorder());
                 botonContador++;
                 botones[f][c].setBackground(null);
+                botones[f][c].setForeground(Color.WHITE);
 //                botones[f][c].setOpaque(false);
 //                botones[f][c].setContentAreaFilled(false);
                 botones[f][c].addMouseListener(new MouseAdapter() {
@@ -296,12 +298,12 @@ public class TableroStratego extends JFrame {
                                         && !(botonPresionado.character.Nombre.equals("Nova Blast") && botonInicio.character.Tipo.equals("Heroe"))){ // EN CASO DE QUE HAYA UN PERSONAJE DEL OTRO BANDO 
                             botonInicio.setBorder(BorderFactory.createEmptyBorder());// se deseleccion el primer boton
                             if ((botonInicio.character.Nivel==10 && botonPresionado.character.Nivel==1)){ // a continuacion se chequean las excepciones dadas en el formato
-                                 JOptionPane.showMessageDialog(null, botonPresionado.character.Nombre+" con Rango"+botonPresionado.character.Nivel+" venció una "+botonInicio.character.Nombre+" con Rango "+botonInicio.character.Nivel+" !");
+                                 JOptionPane.showMessageDialog(null, botonPresionado.character.Nombre+" con Rango "+botonPresionado.character.Nivel+" venció una "+botonInicio.character.Nombre+" con Rango "+botonInicio.character.Nivel+" !");
                                 botonInicio.character=null;
                                 botonInicio.setText(" "); // texto se vuelve nulo al igual que info
                                 botonInicio.setIcon(null);
                             } else if((botonInicio.character.Nivel==1 && botonPresionado.character.Nivel==10)){
-                                  JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" con Rango"+botonInicio.character.Nivel+" venció una "+botonPresionado.character.Nombre+" con Rango "+botonPresionado.character.Nivel+" !");
+                                  JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" con Rango "+botonInicio.character.Nivel+" venció una "+botonPresionado.character.Nombre+" con Rango "+botonPresionado.character.Nivel+" !");
                                 botonPresionado.character=botonInicio.character;
                                 botonPresionado.setText(botonInicio.getText());
                                 botonPresionado.setIcon(botonInicio.getSelectedIcon());
@@ -309,7 +311,7 @@ public class TableroStratego extends JFrame {
                                 botonInicio.setText("");
                                 botonInicio.setIcon(null);
                             }else if((botonInicio.character.Nivel==3 && botonPresionado.character.Nivel==11)){ // las cartas nivel 11 son las bombas
-                                JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" con Rango"+botonInicio.character.Nivel+" venció una "+botonPresionado.character.Nombre+"!");
+                                JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" con Rango "+botonInicio.character.Nivel+" venció una "+botonPresionado.character.Nombre+"!");
                                 botonPresionado.character= botonInicio.character;
                                 botonPresionado.setText(botonInicio.getText());
                                 botonPresionado.setIcon(botonInicio.getSelectedIcon());
@@ -340,11 +342,11 @@ public class TableroStratego extends JFrame {
                             }else { // PARA TODOS LOS MOVIMIENTOS DEL TABLERO EN CASO DE QUE HAYA UN PERSONAJE EN EL SEGUNDO BOTON SELECCIONADO
                                 if(botonInicio.character.Nivel>botonPresionado.character.Nivel){
                                     JOptionPane.showMessageDialog(null, botonInicio.character.Nombre+" de Rango "+botonInicio.character.Nivel+" VS "+botonPresionado.character.Nombre+" de Rango "+botonPresionado.character.Nivel+"\n\n"+botonPresionado.character.Nombre+" fue derrotado por "+botonInicio.character.Nombre);
-                                    botonPresionado.character=botonInicio.character; // La info del boton se mueve hacia la casilla del contrario
-                                    botonPresionado.setIcon(botonInicio.getPressedIcon());
-                                    botonInicio.setIcon(null);
-                                    botonInicio.character=null;
-                                    botonInicio.setText("");
+                                    botonInicio.character=botonPresionado.character; // La info del boton se mueve hacia la casilla del contrario
+                                    botonPresionado.setIcon(botonInicio.getIcon());
+                                    botonPresionado.setIcon(null);
+                                    botonPresionado.character=null;
+                                    botonPresionado.setText("");
                                     //Falta mover la pieza que se elimino al panel de a lado y llevar contador
                                     // Fa;ta descubrir pieza ganadora
                                 } else if(botonInicio.character.Nivel<botonPresionado.character.Nivel){
@@ -501,38 +503,139 @@ public class TableroStratego extends JFrame {
                     botones[f][c].SetCharacter(heroes[posicion_heroe]);
                     heroe_actual--;
                 }
+                if (botones[f][c].character.Nombre.equals("Mr Fantastic")){
+                    ImageIcon fantastic = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/10.mr_fantastic.png");
+                    botones[f][c].setIcon(fantastic);
+                }else if (botones[f][c].character.Nombre.equals("Captain America")){
+                    ImageIcon america = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/9.cap_america.png");
+                    botones[f][c].setIcon(america);
+                }else if (botones[f][c].character.Nombre.equals("Professor X")){
+                    ImageIcon professor = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/8.professor_x.png");
+                    botones[f][c].setIcon(professor);
+                }else if (botones[f][c].character.Nombre.equals("Nick Fury")){
+                    ImageIcon nick = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/8.nick_fury.png");
+                    botones[f][c].setIcon(nick);
+                }else if (botones[f][c].character.Nombre.equals("Spider Man")){
+                    ImageIcon spider = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/7.spiderman.png");
+                    botones[f][c].setIcon(spider);
+                }else if (botones[f][c].character.Nombre.equals("Wolverine")){
+                    ImageIcon wolve = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/7.wolverine.png");
+                    botones[f][c].setIcon(wolve);
+                }else if (botones[f][c].character.Nombre.equals("Namor")){
+                    ImageIcon namor = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/7.namor.png");
+                    botones[f][c].setIcon(namor);
+                }else if (botones[f][c].character.Nombre.equals("Daredevil")){
+                    ImageIcon daredevil = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/6.daredevil.png");
+                    botones[f][c].setIcon(daredevil);
+                }else if (botones[f][c].character.Nombre.equals("Silver Surfer")){
+                    ImageIcon silver = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/6.silver_surfer.png");
+                    botones[f][c].setIcon(silver);
+                }else if (botones[f][c].character.Nombre.equals("Hulk")){
+                    ImageIcon hulk = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/6.hulk.png");
+                    botones[f][c].setIcon(hulk);
+                }else if (botones[f][c].character.Nombre.equals("Iron Man")){
+                    ImageIcon iron = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/6.ironman.png");
+                    botones[f][c].setIcon(iron);
+                }else if (botones[f][c].character.Nombre.equals("Thor")){
+                    ImageIcon thor = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/5.thor.png");
+                    botones[f][c].setIcon(thor);
+                }else if (botones[f][c].character.Nombre.equals("Human Torch")){
+                    ImageIcon torch = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/5.human_torch.png");
+                    botones[f][c].setIcon(torch);
+                }else if (botones[f][c].character.Nombre.equals("Ciclope")){
+                    ImageIcon ciclope = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/5.ciclope.png");
+                    botones[f][c].setIcon(ciclope);
+                }else if (botones[f][c].character.Nombre.equals("Invisible Woman")){
+                    ImageIcon invisible = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/5.invisible_woman.png");
+                    botones[f][c].setIcon(invisible);
+                }else if (botones[f][c].character.Nombre.equals("Ghost Rider")){
+                    ImageIcon ghost = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/4.ghost_rider.png");
+                    botones[f][c].setIcon(ghost);
+                }else if (botones[f][c].character.Nombre.equals("Punisher")){
+                    ImageIcon punisher = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/4.punisher.png");
+                    botones[f][c].setIcon(punisher);
+                }else if (botones[f][c].character.Nombre.equals("Blade")){
+                    ImageIcon blade = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/4.blade.png");
+                    botones[f][c].setIcon(blade);
+                }else if (botones[f][c].character.Nombre.equals("Thing")){
+                    ImageIcon thing = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/4.thing.png");
+                    botones[f][c].setIcon(thing);
+                }else if (botones[f][c].character.Nombre.equals("Emma Frost")){
+                    ImageIcon emma = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/3.emma_frost.png");
+                    botones[f][c].setIcon(emma);
+                }else if (botones[f][c].character.Nombre.equals("She Hulk")){
+                    ImageIcon shehulk = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/3.she-hulk.png");
+                    botones[f][c].setIcon(shehulk);
+                }else if (botones[f][c].character.Nombre.equals("Giant Man")){
+                    ImageIcon giant = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/3.giant_man.png");
+                    botones[f][c].setIcon(giant);
+                }else if (botones[f][c].character.Nombre.equals("Beast")){
+                    ImageIcon beast = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/3.beast.png");
+                    botones[f][c].setIcon(beast);
+                }else if (botones[f][c].character.Nombre.equals("Colossus")){
+                    ImageIcon colossus = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/3.colossus.png");
+                    botones[f][c].setIcon(colossus);
+                }else if (botones[f][c].character.Nombre.equals("Black Widow")){
+                    ImageIcon widow = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/1.black_widow.png");
+                    botones[f][c].setIcon(widow);
+                }else if (botones[f][c].character.Nombre.equals("Phoenix")){
+                    ImageIcon phoenix = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/2.phoenix.png");
+                    botones[f][c].setIcon(phoenix);
+                }else if (botones[f][c].character.Nombre.equals("Elektra")){
+                    ImageIcon elektra = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/2.elektra.png");
+                    botones[f][c].setIcon(elektra);
+                }else if (botones[f][c].character.Nombre.equals("Dr Strange")){
+                    ImageIcon strange = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/2.dr_strange.png");
+                    botones[f][c].setIcon(strange);
+                }else if (botones[f][c].character.Nombre.equals("Nightcrawler")){
+                    ImageIcon night = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/2.nightcrawler.png");
+                    botones[f][c].setIcon(night);
+                }else if (botones[f][c].character.Nombre.equals("Gambit")){
+                    ImageIcon gambit = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/2.gambit.png");
+                    botones[f][c].setIcon(gambit);
+                }else if (botones[f][c].character.Nombre.equals("Spider Girl")){
+                    ImageIcon spidey = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/2.spidergirl.png");
+                    botones[f][c].setIcon(spidey);
+                }else if (botones[f][c].character.Nombre.equals("Ice Man")){
+                    ImageIcon ice = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/2.ice_man.png");
+                    botones[f][c].setIcon(ice);
+                }else if (botones[f][c].character.Nombre.equals("Storm")){
+                    ImageIcon storm = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/heroes_tablero/2.storm.png");
+                    botones[f][c].setIcon(storm);
+                }
             }
         }
         // ubicando bombas y tierra villanos
         int colTV = getRandom(1,8);
         ImageIcon tierrav = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaV/planet_earth_villano.png");
         ImageIcon pumpkin = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/c71ad81f0a4f14e6331dc634354cc3cf5c57016e/src/Imagenes_rebeca/bombaV/pumpkin_bomb.png");
-        if (turnoPara.equals("Heroe")){
-        botones[0][colTV].setIcon(desconocido);
-        botones[0][colTV].SetCharacter(tierraV);
-        botones[0][colTV].habilitado=false;
-        botones[0][colTV-1].setIcon(desconocido);
-        botones[0][colTV-1].SetCharacter(bombaV);
-        botones[0][colTV-1].habilitado=false;
-        botones[0][colTV+1].setIcon(desconocido);
-        botones[0][colTV+1].SetCharacter(bombaV);
-        botones[0][colTV+1].habilitado=false;
-        botones[1][colTV].setIcon(desconocido);
-        botones[1][colTV].SetCharacter(bombaV);
-        botones[1][colTV].habilitado=false;
-        }else if (turnoPara.equals("Villano")){
-        botones[0][colTV].setIcon(tierrav);
-        botones[0][colTV].SetCharacter(tierraV);
-        botones[0][colTV].habilitado=false;
-        botones[0][colTV-1].setIcon(pumpkin);
-        botones[0][colTV-1].SetCharacter(bombaV);
-        botones[0][colTV-1].habilitado=false;
-        botones[0][colTV+1].setIcon(pumpkin);
-        botones[0][colTV+1].SetCharacter(bombaV);
-        botones[0][colTV+1].habilitado=false;
-        botones[1][colTV].setIcon(pumpkin);
-        botones[1][colTV].SetCharacter(bombaV);
-        botones[1][colTV].habilitado=false;
+        if (turnoPara.equals("Vilano")){
+                botones[0][colTV].setIcon(tierrav);
+                botones[0][colTV].SetCharacter(tierraV);
+                botones[0][colTV].habilitado=true;
+                botones[0][colTV-1].setIcon(pumpkin);
+                botones[0][colTV-1].SetCharacter(bombaV);
+                botones[0][colTV-1].habilitado=true;
+                botones[0][colTV+1].setIcon(pumpkin);
+                botones[0][colTV+1].SetCharacter(bombaV);
+                botones[0][colTV+1].habilitado=true;
+                botones[1][colTV].setIcon(pumpkin);
+                botones[1][colTV].SetCharacter(bombaV);
+                botones[1][colTV].habilitado=true;
+        }else if (turnoPara.equals("Heroe")){
+                botones[0][colTV].setIcon(desconocido);
+                botones[0][colTV].SetCharacter(tierraV);
+                botones[0][colTV].habilitado=false;
+                botones[0][colTV-1].setIcon(desconocido);
+                botones[0][colTV-1].SetCharacter(bombaV);
+                botones[0][colTV-1].habilitado=false;
+                botones[0][colTV+1].setIcon(desconocido);
+                botones[0][colTV+1].SetCharacter(bombaV);
+                botones[0][colTV+1].habilitado=false;
+                botones[1][colTV].setIcon(desconocido);
+                botones[1][colTV].SetCharacter(bombaV);
+                botones[1][colTV].habilitado=false;
+
         }
         int pb=1;
         while(pb<=3){
@@ -589,6 +692,7 @@ public class TableroStratego extends JFrame {
                             || (turnoPara.equals("Heroe") && botones[f][c].character.Nombre.equals("Nova Blast")) || (turnoPara.equals("Heroe") && botones[f][c].character.Nombre.equals("Tierra Heroes"))){
                         botones[f][c].setText(botones[f][c].character.Nombre+"("+String.valueOf(botones[f][c].character.Nivel)+")");
                         botones[f][c].habilitado=true;
+                        botones[f][c].setIcon(null);
                     }else{
                         botones[f][c].habilitado=false;
                         if (botones[f][c].habilitado==false){
