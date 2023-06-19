@@ -40,6 +40,17 @@ public class TableroStratego extends JFrame {
         this.configuracion=configuracion;
         initPersonajes();
         setPersonajes();
+        botonInicio.setOpaque(false);
+        botonFinal.setOpaque(false);
+        //añadi esto
+        ImageIcon icono = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/665cd5a441a9935ac0d6e8916fd4ddd2f1afa74b/src/Imagenes_rebeca/TodosLosFondos/tablero_fin.png");
+       jLabel1.setIcon(icono);
+        jLabel1.setOpaque(false);
+        jPanel1.setLayout(null);
+        jLabel1.setBounds(0, 0, jPanel1.getWidth(), jPanel1.getHeight());
+        jPanel1.add(jLabel1);
+        
+        //hasta aqui
     }
     private ImageIcon createImageIconFromURL(String imageUrl) {
         try {
@@ -61,6 +72,7 @@ public class TableroStratego extends JFrame {
         btn_menu = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,11 +105,11 @@ public class TableroStratego extends JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 760, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 770, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
         );
 
         jPanel6.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, -2, 760, 770));
@@ -482,8 +494,8 @@ public class TableroStratego extends JFrame {
         int colTV = getRandom(1,8);
         ImageIcon desconocido = createImageIconFromURL("https://raw.githubusercontent.com/Rpaz17/ProyectoFinal_Grupo7/d0016110e6a873f41cc9b232ddf9fdb2bccd5c7a/src/Imagenes_rebeca/desconocido.png");
         botones[0][colTV].setIcon(desconocido);
-      //  ImageIcon Voculto = createImageIconFromURL("");
-       //botones[0][colTV-1].setIcon(Voculto);
+        //ImageIcon Voculto = createImageIconFromURL("");
+        //botones[0][colTV-1].setIcon(Voculto);
        
         botones[0][colTV].setIcon(desconocido);
         botones[0][colTV].SetCharacter(tierraV);
@@ -593,6 +605,7 @@ public class TableroStratego extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_menu;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
